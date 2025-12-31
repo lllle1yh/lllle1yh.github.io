@@ -1,0 +1,144 @@
+/* 自定义 CSS 样式 */
+
+/* 优化代码块样式 */
+#article-container pre,
+#article-container code {
+  border-radius: 8px;
+}
+
+/* 优化卡片圆角 */
+.card-widget {
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-widget:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* 优化文章卡片 */
+#recent-posts > .recent-post-item {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+#recent-posts > .recent-post-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* 美化滚动条 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, #49B1F5, #00c4b6);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, #00c4b6, #49B1F5);
+}
+
+/* 优化链接样式 */
+#article-container a {
+  color: #49B1F5;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: all 0.3s ease;
+}
+
+#article-container a:hover {
+  color: #00c4b6;
+  border-bottom-color: #00c4b6;
+}
+
+/* 优化按钮样式 */
+.button,
+button,
+input[type="button"],
+input[type="submit"] {
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+/* 添加平滑过渡 */
+* {
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+/* 优化引用块样式 */
+#article-container blockquote {
+  border-left: 4px solid #49B1F5;
+  background: linear-gradient(to right, rgba(73, 177, 245, 0.1), transparent);
+  border-radius: 4px;
+  padding: 1rem 1.5rem;
+  margin: 1rem 0;
+}
+
+/* 标题图标美化 */
+#article-container h1::before,
+#article-container h2::before,
+#article-container h3::before {
+  color: #49B1F5;
+}
+
+/* 目录优化 */
+#card-toc .toc-content {
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+/* 页面背景优化 */
+#page {
+  background: rgba(255, 255, 255, 0.95);
+}
+
+/* 暗黑模式下的优化 */
+[data-theme="dark"] #page {
+  background: rgba(18, 18, 18, 0.95);
+}
+
+[data-theme="dark"] .card-widget {
+  background: rgba(30, 30, 30, 0.9);
+}
+
+/* 首页顶部图片遮罩优化 */
+#page-header::before {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+/* 图片圆角 */
+#article-container img {
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+#article-container img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* 标签云优化 */
+#card-tags .card-tag-cloud a {
+  border-radius: 15px;
+  padding: 4px 12px;
+  margin: 4px;
+  transition: all 0.3s ease;
+}
+
+#card-tags .card-tag-cloud a:hover {
+  transform: scale(1.1);
+}
