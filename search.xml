@@ -8,9 +8,25 @@
       <link href="/2026/01/08/%E4%B8%BA%E4%BB%80%E4%B9%88Windows%E5%BD%B1%E5%AD%90%E6%A0%88%E8%A6%81%E9%BB%98%E8%AE%A4NOSET/"/>
       <url>/2026/01/08/%E4%B8%BA%E4%BB%80%E4%B9%88Windows%E5%BD%B1%E5%AD%90%E6%A0%88%E8%A6%81%E9%BB%98%E8%AE%A4NOSET/</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<h1 id="被Windows影子栈心态搞崩的一个上午"><a href="#被Windows影子栈心态搞崩的一个上午" class="headerlink" title="被Windows影子栈心态搞崩的一个上午"></a>被Windows影子栈心态搞崩的一个上午</h1><h2 id="Why-Shadow-Stack"><a href="#Why-Shadow-Stack" class="headerlink" title="Why Shadow Stack?"></a>Why Shadow Stack?</h2><p><a href="https://learn.microsoft.com/zh-cn/windows-server/security/kernel-mode-hardware-stack-protection">Windows内核模式硬件强制堆栈保护</a></p><p>简单来说就是防止控制流(CFI)劫持的一种方式。</p><p>见上一篇博客，对CFI做了一个较为基础的静态分析、源码分析以及基础的绕过测试。</p><h2 id="下面说说必须要吐槽的事情"><a href="#下面说说必须要吐槽的事情" class="headerlink" title="下面说说必须要吐槽的事情"></a>下面说说必须要吐槽的事情</h2><p>Intel13代处理器支持影子栈，但是再虚拟环境中，过滤这个特性（目前没有测试出来qwq，但是又可以检测是否开启了这个功能，来个大佬能在虚拟环境中测试一下shadow stack）</p><p>所以我查看了我主机是否支持Shadow stack：</p><p><img src="/img/posts/2026/8/1.png" alt="检查影子栈状态显示NOTSET"></p><p>可以看到显示的是NOTSET</p><p>为了测试我把这个打开了：</p><p><img src="/img/posts/2026/8/2.png" alt="开启影子栈功能"></p><p>这个时候还一起正常，忘记了修改配置没有重启的影响，然后晚上睡觉后我把电脑关机了。</p><p>第二天离谱的来了，开机以后，包括vscode、trae、vs2022等一些列编辑器全部失效，无法启动，给我整不会了哥们^^^^^^^</p><p>开始以为是内存不够了，检查也没看到什么大进程，然后又把电脑除了必须的服务其他全部关闭，发现仍然无法启动，甚至这个时候微信等通信软件也开始失效。</p><p>这个时候，点子来了，钉钉（好软件）给我提示了（PS：钉钉在一开始还是可以正常自动启动的），显示启动异常，弹出安全模式：</p><p><img src="/img/posts/2026/8/3.png" alt="钉钉启动异常提示"></p><p>看到缓存两个字，一下子想到昨天开了影子栈这回事，赶紧关了，果然一切恢复正常了……</p><h2 id="WHY-USE-IT"><a href="#WHY-USE-IT" class="headerlink" title="WHY USE IT???"></a>WHY USE IT???</h2><p>给我的感觉是很不兼容，这么多主流软件都无法兼容这个硬件安全特性，所以电脑开启这个机制后，反而非常影响用户体验；</p><p>也算是积累一个经验吧，网上似乎没看到有因为影子栈软件启动不了的文章，这里给大家做个检查的思路，我是真的被搞无语了QwQ</p>]]></content>
       
       
+      <categories>
+          
+          <category> 技术 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> CFI </tag>
+            
+            <tag> 二进制分析 </tag>
+            
+            <tag> 2026 </tag>
+            
+        </tags>
       
     </entry>
     
