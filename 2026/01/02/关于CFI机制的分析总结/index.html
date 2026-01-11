@@ -7,11 +7,11 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://lllle1yh.github.io/img/posts/2026/1/%E5%85%B3%E4%BA%8ECFI%E6%9C%BA%E5%88%B6%E7%9A%84%E5%88%86%E6%9E%90%E6%80%BB%E7%BB%93/1.png">
 <meta property="article:published_time" content="2026-01-02T15:36:40.000Z">
-<meta property="article:modified_time" content="2026-01-02T15:53:36.537Z">
+<meta property="article:modified_time" content="2026-01-11T03:11:05.811Z">
 <meta property="article:author" content="lllle1yh">
-<meta property="article:tag" content="安全">
 <meta property="article:tag" content="CFI">
 <meta property="article:tag" content="二进制分析">
+<meta property="article:tag" content="安全">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://lllle1yh.github.io/img/posts/2026/1/%E5%85%B3%E4%BA%8ECFI%E6%9C%BA%E5%88%B6%E7%9A%84%E5%88%86%E6%9E%90%E6%80%BB%E7%BB%93/1.png"><script type="application/ld+json">{
   "@context": "https://schema.org",
@@ -20,7 +20,7 @@
   "url": "https://lllle1yh.github.io/2026/01/02/%E5%85%B3%E4%BA%8ECFI%E6%9C%BA%E5%88%B6%E7%9A%84%E5%88%86%E6%9E%90%E6%80%BB%E7%BB%93/",
   "image": "https://lllle1yh.github.io/img/posts/2026/1/%E5%85%B3%E4%BA%8ECFI%E6%9C%BA%E5%88%B6%E7%9A%84%E5%88%86%E6%9E%90%E6%80%BB%E7%BB%93/1.png",
   "datePublished": "2026-01-02T15:36:40.000Z",
-  "dateModified": "2026-01-02T15:53:36.537Z",
+  "dateModified": "2026-01-11T03:11:05.811Z",
   "author": [
     {
       "@type": "Person",
@@ -169,9 +169,1300 @@ btf.addGlobalFn('pjaxComplete', () => {
 }</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
   title: '关于CFI机制的分析总结',
   isHighlightShrink: false,
-  isToc: false,
+  isToc: true,
   pageType: 'post'
-}</script><link rel="stylesheet" href="/css/custom.css"><meta name="generator" content="Hexo 7.2.0"></head><body><div class="bg-animation" id="web_bg" style="background-image: url(/url(/img/background.jpg));"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">4</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">7</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/img/posts/2026/1/%E5%85%B3%E4%BA%8ECFI%E6%9C%BA%E5%88%B6%E7%9A%84%E5%88%86%E6%9E%90%E6%80%BB%E7%BB%93/1.png);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">lllle1yh_s_bl0g</span></a><a class="nav-page-title" href="/"><span class="site-name">关于CFI机制的分析总结</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">关于CFI机制的分析总结</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-01-02T15:36:40.000Z" title="发表于 2026-01-02 23:36:40">2026-01-02</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-01-02T15:53:36.537Z" title="更新于 2026-01-02 23:53:36">2026-01-02</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">0</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>1分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://lllle1yh.github.io">lllle1yh</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://lllle1yh.github.io/2026/01/02/%E5%85%B3%E4%BA%8ECFI%E6%9C%BA%E5%88%B6%E7%9A%84%E5%88%86%E6%9E%90%E6%80%BB%E7%BB%93/">https://lllle1yh.github.io/2026/01/02/%E5%85%B3%E4%BA%8ECFI%E6%9C%BA%E5%88%B6%E7%9A%84%E5%88%86%E6%9E%90%E6%80%BB%E7%BB%93/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://lllle1yh.github.io" target="_blank">lllle1yh_s_bl0g</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%AE%89%E5%85%A8/">安全</a><a class="post-meta__tags" href="/tags/CFI/">CFI</a><a class="post-meta__tags" href="/tags/%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%88%86%E6%9E%90/">二进制分析</a></div><div class="post-share"><div class="social-share" data-image="/img/posts/2026/1/%E5%85%B3%E4%BA%8ECFI%E6%9C%BA%E5%88%B6%E7%9A%84%E5%88%86%E6%9E%90%E6%80%BB%E7%BB%93/1.png" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2026/01/08/%E4%B8%BA%E4%BB%80%E4%B9%88Windows%E5%BD%B1%E5%AD%90%E6%A0%88%E8%A6%81%E9%BB%98%E8%AE%A4NOSET/" title="为什么Windows影子栈要默认NOSET?"><img class="cover" src="/img/posts/2026/8/4.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">为什么Windows影子栈要默认NOSET?</div></div><div class="info-2"><div class="info-item-1">被Windows影子栈心态搞崩的一个上午Why Shadow Stack?Windows内核模式硬件强制堆栈保护 简单来说就是防止控制流(CFI)劫持的一种方式。 见上一篇博客，对CFI做了一个较为基础的静态分析、源码分析以及基础的绕过测试。 下面说说必须要吐槽的事情Intel13代处理器支持影子栈，但是再虚拟环境中，过滤这个特性（目前没有测试出来qwq，但是又可以检测是否开启了这个功能，来个大佬能在虚拟环境中测试一下shadow stack） 所以我查看了我主机是否支持Shadow stack：  可以看到显示的是NOTSET 为了测试我把这个打开了：  这个时候还一起正常，忘记了修改配置没有重启的影响，然后晚上睡觉后我把电脑关机了。 第二天离谱的来了，开机以后，包括vscode、trae、vs2022等一些列编辑器全部失效，无法启动，给我整不会了哥们^^^^^^^ 开始以为是内存不够了，检查也没看到什么大进程，然后又把电脑除了必须的服务其他全部关闭，发现仍然无法启动，甚至这个时候微信等通信软件也开始失效。 这个时候，点子来了，钉钉（好软件）给我提示了（PS：钉钉在一开始还是可...</div></div></div></a><a class="pagination-related" href="/2025/12/30/The-final-of-2025/" title="The final of 2025"><img class="cover" src="/img/covers/the-final-of-2025.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">The final of 2025</div></div><div class="info-2"><div class="info-item-1">2025年，这一年过得充实而精彩。啥都不会的安全小白也算入门了，从旅行到日常的学习生活，每一个月的瞬间，在这里回顾。  一月一月多的时候，回了趟高中。熟悉的校园，回忆满满。（照片找不齐，写点意思意思）  二月二月初去了南昌，感受一下这座城市的魅力。  中旬返校了，新学期开始，又是忙碌的”苦逼”生活。不过，充实的生活才是最有意义的。（一样没有照片）  三月 入门入门学长tql，入门人生第一个靶场。Web，Web，我来啦！   四月进山四月初进山了，累啊  漏洞复现回来以后开始复现基础的漏洞，复现第一个CVE，越权重装系统  走走走四月中旬，去了洛邑古城。  第一次模拟真实网络存在的问题   五月自习自习五月初去图书馆的路上，阳光刚好打在上面，无敌了老铁  学学学继续各种配环境(煎熬的很，啥也不会)，复现基础 CVE。  端午节包的粽子   六月六月苦逼复习   七月终于考完了考完试，准备去爬山，gogogo  登顶上山上山！  飞厦门下山，先飞去厦门玩一下。   八月 煎熬休息几天后，准备回学校了。[流泪]（没照片意思意思） 省实验月末去省实验遛一遛   九月开学开学九月开学了，又...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2026/01/08/%E4%B8%BA%E4%BB%80%E4%B9%88Windows%E5%BD%B1%E5%AD%90%E6%A0%88%E8%A6%81%E9%BB%98%E8%AE%A4NOSET/" title="为什么Windows影子栈要默认NOSET?"><img class="cover" src="/img/posts/2026/8/4.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-01-08</div><div class="info-item-2">为什么Windows影子栈要默认NOSET?</div></div><div class="info-2"><div class="info-item-1">被Windows影子栈心态搞崩的一个上午Why Shadow Stack?Windows内核模式硬件强制堆栈保护 简单来说就是防止控制流(CFI)劫持的一种方式。 见上一篇博客，对CFI做了一个较为基础的静态分析、源码分析以及基础的绕过测试。 下面说说必须要吐槽的事情Intel13代处理器支持影子栈，但是再虚拟环境中，过滤这个特性（目前没有测试出来qwq，但是又可以检测是否开启了这个功能，来个大佬能在虚拟环境中测试一下shadow stack） 所以我查看了我主机是否支持Shadow stack：  可以看到显示的是NOTSET 为了测试我把这个打开了：  这个时候还一起正常，忘记了修改配置没有重启的影响，然后晚上睡觉后我把电脑关机了。 第二天离谱的来了，开机以后，包括vscode、trae、vs2022等一些列编辑器全部失效，无法启动，给我整不会了哥们^^^^^^^ 开始以为是内存不够了，检查也没看到什么大进程，然后又把电脑除了必须的服务其他全部关闭，发现仍然无法启动，甚至这个时候微信等通信软件也开始失效。 这个时候，点子来了，钉钉（好软件）给我提示了（PS：钉钉在一开始还是可...</div></div></div></a></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="giscus-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">lllle1yh</div><div class="author-info-description">记录美好生活 | 分享技术心得</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">4</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">7</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/lllle1yh"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/lllle1yh" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:3020972982@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎来到我的博客！正在建设中...</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/01/08/%E4%B8%BA%E4%BB%80%E4%B9%88Windows%E5%BD%B1%E5%AD%90%E6%A0%88%E8%A6%81%E9%BB%98%E8%AE%A4NOSET/" title="为什么Windows影子栈要默认NOSET?"><img src="/img/posts/2026/8/4.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="为什么Windows影子栈要默认NOSET?"/></a><div class="content"><a class="title" href="/2026/01/08/%E4%B8%BA%E4%BB%80%E4%B9%88Windows%E5%BD%B1%E5%AD%90%E6%A0%88%E8%A6%81%E9%BB%98%E8%AE%A4NOSET/" title="为什么Windows影子栈要默认NOSET?">为什么Windows影子栈要默认NOSET?</a><time datetime="2026-01-08T03:35:04.000Z" title="发表于 2026-01-08 11:35:04">2026-01-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/01/02/%E5%85%B3%E4%BA%8ECFI%E6%9C%BA%E5%88%B6%E7%9A%84%E5%88%86%E6%9E%90%E6%80%BB%E7%BB%93/" title="关于CFI机制的分析总结"><img src="/img/posts/2026/1/%E5%85%B3%E4%BA%8ECFI%E6%9C%BA%E5%88%B6%E7%9A%84%E5%88%86%E6%9E%90%E6%80%BB%E7%BB%93/1.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="关于CFI机制的分析总结"/></a><div class="content"><a class="title" href="/2026/01/02/%E5%85%B3%E4%BA%8ECFI%E6%9C%BA%E5%88%B6%E7%9A%84%E5%88%86%E6%9E%90%E6%80%BB%E7%BB%93/" title="关于CFI机制的分析总结">关于CFI机制的分析总结</a><time datetime="2026-01-02T15:36:40.000Z" title="发表于 2026-01-02 23:36:40">2026-01-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/12/30/The-final-of-2025/" title="The final of 2025"><img src="/img/covers/the-final-of-2025.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="The final of 2025"/></a><div class="content"><a class="title" href="/2025/12/30/The-final-of-2025/" title="The final of 2025">The final of 2025</a><time datetime="2025-12-30T10:54:03.000Z" title="发表于 2025-12-30 18:54:03">2025-12-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/12/30/hello-world/" title="Hello World"><img src="/img/background.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hello World"/></a><div class="content"><a class="title" href="/2025/12/30/hello-world/" title="Hello World">Hello World</a><time datetime="2025-12-30T09:19:49.522Z" title="发表于 2025-12-30 17:19:49">2025-12-30</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 - 2026 By lllle1yh</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.2.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.3</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="https://cdn.jsdelivr.net/npm/hexo-theme-butterfly@5.5.3/source/js/utils.min.js"></script><script src="https://cdn.jsdelivr.net/npm/hexo-theme-butterfly@5.5.3/source/js/main.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1.7/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>(() => {
+}</script><link rel="stylesheet" href="/css/custom.css"><meta name="generator" content="Hexo 7.2.0"></head><body><div class="bg-animation" id="web_bg" style="background-image: url(/url(/img/background.jpg));"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">4</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">7</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/img/posts/2026/1/%E5%85%B3%E4%BA%8ECFI%E6%9C%BA%E5%88%B6%E7%9A%84%E5%88%86%E6%9E%90%E6%80%BB%E7%BB%93/1.png);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">lllle1yh_s_bl0g</span></a><a class="nav-page-title" href="/"><span class="site-name">关于CFI机制的分析总结</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">关于CFI机制的分析总结</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-01-02T15:36:40.000Z" title="发表于 2026-01-02 23:36:40">2026-01-02</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-01-11T03:11:05.811Z" title="更新于 2026-01-11 11:11:05">2026-01-11</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">11.4k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>51分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p>GCC：11.4.0</p>
+<p>GLIBC：2.35</p>
+<p>Linux-kernel：Linux-6.6</p>
+<p>LLVM</p>
+<p>WSL2-kernel</p>
+<h1 id="先更新一下部分技术的源码解读"><a href="#先更新一下部分技术的源码解读" class="headerlink" title="先更新一下部分技术的源码解读"></a>先更新一下部分技术的源码解读</h1><h3 id="GCC-VTV（虚表验证）"><a href="#GCC-VTV（虚表验证）" class="headerlink" title="GCC VTV（虚表验证）"></a>GCC VTV（虚表验证）</h3><h4 id="1）简单介绍"><a href="#1）简单介绍" class="headerlink" title="1）简单介绍"></a>1）简单介绍</h4><p>多态类为什么叫”多态”：</p>
+<p>允许通过基类指针&#x2F;引用调用派生类的重写函数</p>
+<p>实现运行时多态（动态绑定）</p>
+<p>VTV 的核心思想是:限制虚表指针的合法取值范围。对于每个多态类,VTV 维护一个该类及其派生类的所有合法虚表指针集合。在虚函数调用前,检查对象的虚表指针是否在这个集合中。</p>
+<p>源代码中的注释说明：</p>
+<p>此文件是虚表安全功能实现的一部分。虚表安全功能用于检测即将通过无效虚表指针进行的虚拟调用（可能由于数据损坏或恶意攻击）。编译器会检测每个虚拟调用，并在虚拟调用之前插入验证调用。验证调用会获取对象中用于虚拟调用的实际虚表指针值，并将该指针与对象可能包含的所有有效虚表指针集合进行比较（该集合基于对象的声明类型）。如果指针在有效集合内，则允许继续执行；否则程序将被终止。</p>
+<p>源代码中的注释说明：（如何引用虚表集合）</p>
+<p>为了查找并引用任何给定虚拟类的一组有效的虚表指针，我们为每个虚拟类创建一个特殊的全局变量。我们称其为该类的“虚表映射变量”。虚表映射变量的类型为“void *”，由编译器初始化为NULL。在运行时，当为某个虚拟类（例如类Foo）构建有效虚表指针集合时，类Foo的虚表映射变量将指向该集合。在编译时，当编译器向程序中插入验证调用时，它会将适当类的虚表映射变量传递给验证调用，以便在运行时验证调用可以找到相应的数据集合。</p>
+<p>源代码中的注释说明：(了如何在运行时构建虚表集合)</p>
+<p>类层次结构和虚表信息，并生成调用以在运行时构建数据集。为了构建数据集，我们调用添加到运行时库的其中一个函数 __VLTRegisterPair。__VLTRegisterPair 接受两个参数：一个虚表映射变量和一个虚表地址。如果虚表映射变量当前为 NULL，它会创建一个新的数据集（哈希表），使虚表映射变量指向该新数据集，并将虚表地址插入数据集中。如果虚表映射变量不是 NULL，它则仅将虚表地址插入数据集。为了确保我们的数据集在任何验证调用发生之前已构建，我们为每个编译单元创建了一个特殊的构造函数初始化函数，给予它非常高的初始化优先级，并将所有对 __VLTRegisterPair 的调用插入到我们的特殊构造函数初始化函数中。</p>
+<h4 id="2）逻辑"><a href="#2）逻辑" class="headerlink" title="2）逻辑"></a>2）逻辑</h4><p>核心理念其实和影子栈类似：</p>
+<p>1、预先存储合法值</p>
+<p>2、运行时对比验证</p>
+<p>3、发现不匹配就报错&#x2F;终止</p>
+<p>举例说明：<br>类继承层次分析：<br>假设有以下类层次:</p>
+<p>```cpp</p>
+<p>class Base {</p>
+<p>&nbsp; virtual void foo();</p>
+<p>};</p>
+<p>class Derived : public Base {</p>
+<p>&nbsp; virtual void foo();</p>
+<p>};</p>
+<p>```</p>
+<p>&#x2F;&#x2F; vtable map 变量</p>
+<p>extern void *_ZN4Base11vtable_mapE;   &#x2F;&#x2F; Base::vtable_map</p>
+<p>extern void *_ZN7Derived11vtable_mapE; &#x2F;&#x2F; Derived::vtable_map</p>
+<p>&#x2F;&#x2F; 构造函数中的注册代码</p>
+<p>_<em>attribute</em>_((constructor(100)))</p>
+<p>static void _vtv_register_tables() {</p>
+<p>&nbsp; &#x2F;&#x2F; 为 Base 注册两个虚表: Base 自己的 + Derived 的</p>
+<p>&nbsp; __VLTRegisterPair(&amp;_ZN4Base11vtable_mapE, &amp;_ZTV4Base);</p>
+<p>&nbsp; __VLTRegisterPair(&amp;_ZN4Base11vtable_mapE, &amp;_ZTV7Derived);</p>
+<p>&nbsp; &#x2F;&#x2F; 为 Derived 只注册自己的虚表</p>
+<p>&nbsp; __VLTRegisterPair(&amp;_ZN7Derived11vtable_mapE, &amp;_ZTV7Derived);</p>
+<p>}</p>
+<p>```</p>
+<p>1、注册阶段、程序启动时，调用__VLTRegisterPair</p>
+<p>构建vtable_map，存储合法的虚表地址</p>
+<p>__VLTRegisterPair(&amp;Base::vtable_map, &amp;vtable_for_Base);</p>
+<p>__VLTRegisterPair(&amp;Base::vtable_map, &amp;vtable_for_Derived);</p>
+<p>__VLTRegisterPair(&amp;Derived::vtable_map, &amp;vtable_for_Derived);</p>
+<ol>
+<li>使用阶段</li>
+</ol>
+<p>原始代码：</p>
+<p>Base *ptr &#x3D; new Derived(); &#x2F;&#x2F;这里编译器只知道指针的静态类型，但是明确自己的map就会非常严格。</p>
+<p>ptr-&gt;foo(); &#x2F;&#x2F; 虚函数调用</p>
+<p>编译器插桩后的代码：</p>
+<p>Base *ptr &#x3D; new Derived();</p>
+<p>&#x2F;&#x2F; 调用foo()前，先验证vptr</p>
+<p>__VLTVerifyVtablePointer(&amp;Base::vtable_map, &#x2F;&#x2F; 用Base的vtable_map</p>
+<p>ptr-&gt;vptr); &#x2F;&#x2F; 检查对象的vptr</p>
+<p>&#x2F;&#x2F; 验证通过后才真正调用</p>
+<p>ptr-&gt;foo();</p>
+<p>3. 验证逻辑</p>
+<p>void __VLTVerifyVtablePointer(vtable_map_node *map, void *vptr) {</p>
+<p>&#x2F;&#x2F; 检查 vptr 是否在 map 的合法虚表集合中</p>
+<p>if (!is_in_map(map, vptr)) {</p>
+<p>&#x2F;&#x2F; 不合法！可能是攻击</p>
+<p>abort(); &#x2F;&#x2F; 终止程序</p>
+<p>}</p>
+<p>&#x2F;&#x2F; 合法，继续执行</p>
+<p>}</p>
+<p>虚表指针注册逻辑</p>
+<p>void</p>
+<p>__VLTRegisterPair (void **set_handle_ptr, const  void *set_symbol_key,</p>
+<p>&nbsp;                  size_t size_hint, const void *vtable_ptr)</p>
+<p>{</p>
+<p>&nbsp; unsigned long long start &#x3D; get_cycle_count ();  &#x2F;&#x2F; 性能统计</p>
+<p>&nbsp; increment_num_calls (&amp;num_calls_to_regpair);</p>
+<p>&nbsp; &#x2F;&#x2F; 1. 初始化 vtable map 变量 (符号统一化)</p>
+<p>将vtable map变量名映射到第一个 vtable map 变量的指针</p>
+<p>&nbsp; init_set_symbol (set_handle_ptr, set_symbol_key, size_hint);</p>
+<p>&nbsp; &#x2F;&#x2F; 2. 插入虚表指针到集合</p>
+<p>&nbsp; register_pair_common (set_handle_ptr, vtable_ptr, NULL, NULL, false);</p>
+<p>&nbsp; accumulate_cycle_count (&amp;regpair_cycles, start);</p>
+<p>}</p>
+<h4 id="3）编译器插桩实现（GCC）"><a href="#3）编译器插桩实现（GCC）" class="headerlink" title="3）编译器插桩实现（GCC）"></a><strong>3）编译器插桩实现（GCC）</strong></h4><p>VTV Pass 说明：完整的 VTV 工作原理注释</p>
+<p><a href="D:/Desktop/source_code/gcc/gcc-11.4.0/gcc/vtable-verify.c"%20\l%20"L22-L100">gcc-11.4.0&#x2F;gcc&#x2F;vtable-verify.c:22-100</a></p>
+<p>类继承层次分析：构建虚表集合</p>
+<p><a href="D:/Desktop/source_code/gcc/gcc-11.4.0/gcc/cp/vtable-class-hierarchy.c">gcc-11.4.0&#x2F;gcc&#x2F;cp&#x2F;vtable-class-hierarchy.c</a></p>
+<h4 id="4）-运行时库实现（libvtv）"><a href="#4）-运行时库实现（libvtv）" class="headerlink" title="4） 运行时库实现（libvtv）"></a>4） <strong>运行时库实现（libvtv）</strong></h4><p>VTV 机制详细说明：<a href="D:/Desktop/source_code/gcc/gcc-11.4.0/libvtv/vtv_rts.cc"%20\l%20"L24-L86">gcc-11.4.0&#x2F;libvtv&#x2F;vtv_rts.cc:24-86</a></p>
+<p>虚表指针验证：</p>
+<p>这个函数在源码中的注释：明显是很重要的</p>
+<p>Since this function gets called VERY frequently, it is</p>
+<p>&nbsp;    important for it to be as efficient as possible.</p>
+<p>const void *</p>
+<p>__VLTVerifyVtablePointer (void ** set_handle_ptr, const void * vtable_ptr)</p>
+<p>{</p>
+<p>&nbsp; unsigned long long start &#x3D; get_cycle_count ();</p>
+<p>&nbsp; int_vptr vtbl_ptr &#x3D; (int_vptr) vtable_ptr;</p>
+<p>获取对应的指向合法虚表指针</p>
+<p>&nbsp; vtv_set_handle *handle_ptr;</p>
+<p>&nbsp; increment_num_calls (&amp;num_calls_to_verify_vtable);</p>
+<p>&nbsp; if (!is_set_handle_handle (*set_handle_ptr))</p>
+<p>&nbsp;   handle_ptr &#x3D; (vtv_set_handle *) set_handle_ptr;</p>
+<p>&nbsp; else</p>
+<p>&nbsp;   handle_ptr &#x3D; ptr_from_set_handle_handle (*set_handle_ptr);</p>
+<p>核心验证函数</p>
+<p>&nbsp; if (!vtv_sets::contains (vtbl_ptr, handle_ptr))</p>
+<p>&nbsp;   {</p>
+<p>&nbsp;     __vtv_verify_fail ((void **) handle_ptr, vtable_ptr);</p>
+<p>&nbsp;     &#x2F;* Normally __vtv_verify_fail will call abort, so we won’t</p>
+<p>&nbsp;        execute the return below.  If we get this far, the assumption</p>
+<p>&nbsp;        is that the programmer has replaced __vtv_verify_fail with</p>
+<p>&nbsp;        some kind of secondary verification AND this secondary</p>
+<p>&nbsp;        verification succeeded, so the vtable pointer is valid.  *&#x2F;</p>
+<p>注释说明：<br>正常情况：__vtv_verify_fail 会调用 abort() 终止程序</p>
+<p>特殊情况：程序员可能自定义了 __vtv_verify_fail，进行二次验证</p>
+<p>如果代码继续执行，说明二次验证通过了</p>
+<p>&nbsp;   }</p>
+<p>&nbsp; accumulate_cycle_count (&amp;verify_vtable_cycles, start);</p>
+<p>&nbsp; return vtable_ptr;通过返回虚表指针</p>
+<p>}</p>
+<p>虚表集合数据结构:Hash map 实现</p>
+<p><a href="D:/Desktop/source_code/gcc/gcc-11.4.0/libvtv/vtv_map.h">gcc-11.4.0&#x2F;libvtv&#x2F;vtv_map.h</a></p>
+<p>虚表集合操作:Set 数据结构</p>
+<p><a href="D:/Desktop/source_code/gcc/gcc-11.4.0/libvtv/vtv_set.h">gcc-11.4.0&#x2F;libvtv&#x2F;vtv_set.h</a></p>
+<p>符号统一化（优化策略：多个实例的指针指向同一个虚表）（防止符号劫持，利用符号冲突）</p>
+<p>a.cpp 和 b.cpp 可能各自生成不同的 Base::vtable_map，导致两个文件中的验证使用不同的vtable_map,VTV失效</p>
+<p>恶意符号注入（动态链接场景下的符号覆盖攻击）：</p>
+<p>理论上：</p>
+<p>1. 正常情况</p>
+<p>&#x2F;&#x2F; victim.cpp</p>
+<p>class Base {</p>
+<p>virtual void foo() { cout &lt;&lt; “Normal operation”; }</p>
+<p>};</p>
+<p>int main() {</p>
+<p>Base *ptr &#x3D; new Base();</p>
+<p>ptr-&gt;foo(); &#x2F;&#x2F; 期望调用正常的foo</p>
+<p>}</p>
+<p>编译后：</p>
+<p>victim binary:</p>
+<p>vtable_for_Base at 0x1000:</p>
+<p>[0] -&gt; Base::foo (正常实现)</p>
+<p>2. 攻击者准备恶意库</p>
+<p>&#x2F;&#x2F; evil.cpp</p>
+<p>class Base {</p>
+<p>virtual void foo() { system(“&#x2F;bin&#x2F;sh”); } &#x2F;&#x2F; 恶意实现</p>
+<p>};</p>
+<p>&#x2F;&#x2F; 编译成共享库</p>
+<p>&#x2F;&#x2F; g++ -shared -fPIC evil.cpp -o evil.so</p>
+<p>生成：</p>
+<p>evil.so:</p>
+<p>vtable_for_Base at 0x2000:</p>
+<p>[0] -&gt; Base::foo (恶意实现)</p>
+<p>关键：两个vtable使用相同的符号名 _ZTV4Base</p>
+<p>3. 动态链接时的符号解析</p>
+<p>gcc victim.cpp -o victim -L. -levil</p>
+<p># 或者运行时: LD_PRELOAD&#x3D;.&#x2F;evil.so .&#x2F;victim</p>
+<p>动态链接器的符号解析规则：</p>
+<p>搜索顺序：先搜索的库优先</p>
+<p>如果evil.so先加载，它的符号会被优先使用</p>
+<p>当victim需要_ZTV4Base时，可能解析到evil.so中的版本</p>
+<p>4. 攻击效果</p>
+<p>程序运行时：</p>
+<p>1. victim中创建Base对象</p>
+<p>Base *ptr &#x3D; new Base();</p>
+<p>2. 对象的vptr应该指向victim的vtable (0x1000)</p>
+<p>但动态链接器可能让它指向evil.so的vtable (0x2000)！</p>
+<p>3. 调用虚函数</p>
+<p>ptr-&gt;foo();</p>
+<p>-&gt; 通过vptr跳转 (0x2000)</p>
+<p>-&gt; 执行恶意的foo()</p>
+<p>-&gt; system(“&#x2F;bin&#x2F;sh”) &#x2F;&#x2F; 攻击成功！</p>
+<p>指针指向：</p>
+<p>原本期望的：</p>
+<p>ptr-&gt;vptr -&gt; victim的vtable (0x1000) -&gt; 正常foo()</p>
+<p>攻击后：</p>
+<p>ptr-&gt;vptr -&gt; evil.so的vtable (0x2000) -&gt; 恶意foo()</p>
+<p>合法地址加到vtable_map</p>
+<p>VTV验证的是虚表地址（vptr的值）这里的问题就是COOP的防御</p>
+<p>内存保护机制：（权限）在注册&#x2F;修改阶段允许写入，在验证阶段禁止写入<br>void</p>
+<p>__VLTChangePermission (int perm)</p>
+<p>{</p>
+<p>&nbsp; &#x2F;&#x2F; 1. 初始化互斥锁 (确保线程安全) 多线程安全</p>
+<p>&nbsp; #ifndef __GTHREAD_MUTEX_INIT</p>
+<p>&nbsp; static __gthread_once_t mutex_once VTV_PROTECTED_VAR &#x3D; __GTHREAD_ONCE_INIT;</p>
+<p>&nbsp; __gthread_once (&amp;mutex_once, initialize_change_permissions_mutexes);</p>
+<p>&nbsp; #endif</p>
+<p>&nbsp; if (perm &#x3D;&#x3D; __VLTP_READ_WRITE)</p>
+<p>&nbsp;   {</p>
+<p>&nbsp;     &#x2F;&#x2F; 2. 切换到可写模式 （类似PV操作）</p>
+<p>&nbsp;     __gthread_mutex_lock (&amp;change_permissions_lock);</p>
+<p>&nbsp;     vtv_unprotect_vtable_vars ();  &#x2F;&#x2F; 将 .vtable_map_vars 段设为 RW</p>
+<p>&nbsp;     __vtv_malloc_init ();           &#x2F;&#x2F; 初始化内存分配器</p>
+<p>&nbsp;     __vtv_malloc_unprotect ();      &#x2F;&#x2F; 将 hash set 数据页设为 RW</p>
+<p>&nbsp;   }</p>
+<p>&nbsp; else if (perm &#x3D;&#x3D; __VLTP_READ_ONLY)</p>
+<p>&nbsp;   {</p>
+<p>&nbsp;     &#x2F;&#x2F; 3. 切换到只读模式</p>
+<p>&nbsp;     __vtv_malloc_protect ();        &#x2F;&#x2F; 将 hash set 数据页设为 RO</p>
+<p>&nbsp;     vtv_protect_vtable_vars ();    &#x2F;&#x2F; 将 .vtable_map_vars 段设为 RO</p>
+<p>&nbsp;     __gthread_mutex_unlock (&amp;change_permissions_lock);</p>
+<p>&nbsp;   }</p>
+<p>}</p>
+<p>防止运行时被篡改，不仅验证vptr，还保护验证数据本身的完整性！</p>
+<p>怎么找：key数据结果(不做过的讲解)</p>
+<p>三重验证</p>
+<ol>
+<li>长度比较 (n)：不同长度直接返回 false</li>
+<li>哈希比较 (hash)：哈希不同直接返回 false</li>
+<li>字符串比较 (bytes)：最终比较实际内容</li>
+</ol>
+<p><strong>内存优化、插入、查找、扩容因为是分析CFI机制（保护机制）这里不做过多赘述</strong>。</p>
+<p>分析错误处理流程：</p>
+<p>源文件注释翻译（&#x2F;gcc&#x2F;gcc-11.4.0&#x2F;libvtv&#x2F;vtv_fail.c）：该文件还包含在数据集中未找到虚表指针时调用的失败函数。其中两个特别重要的函数是 __vtv_verify_fail 和 __vtv_really_fail。它们都是外部可见的。__vtv_verify_fail 的定义方式允许程序员根据需要进行替换。这个函数是 __VLTVerifyVtablePointer 在找不到数据集中的指针时调用的函数。允许程序员覆盖此函数意味着他&#x2F;她可以执行一些替代验证，包括在某些特定情况下不失败（如果需要）。例如，如果程序员必须处理未经验证的第三方软件，可能会出现这种情况。__vtv_really_fail 可供程序员在其版本的 __vtv_verify_fail 中调用，如果他认为失败是真实的。</p>
+<p>__vtv_verify_fail: 可被用户覆盖,允许自定义验证逻辑</p>
+<p>__vtv_really_fail: 真正的终止函数,调用 __fortify_fail 和 abort</p>
+<p>__vtv_really_fail源码实现：  </p>
+<p><strong>日志管理，错误后的Backtrace的生成这里不做过多赘述</strong></p>
+<p><strong>用于失败处理：</strong></p>
+<p>__VLTVerifyVtablePointer</p>
+<p>&nbsp; ├─&gt; __vtv_verify_fail (可被用户覆盖)</p>
+<p>&nbsp;     ├─&gt; log_error_message (记录日志和 backtrace)</p>
+<p>&nbsp;     └─&gt; vtv_fail</p>
+<p>&nbsp;         └─&gt; __vtv_really_fail</p>
+<p>&nbsp;             ├─&gt; __fortify_fail (glibc,打印错误、栈、内存映射)</p>
+<p>&nbsp;             └─&gt; abort()</p>
+<p><strong>实现机制：</strong><br>1. 编译时：为每个虚类创建 vtable map 变量<br>void **ZN3Foo11vtablemapE &#x3D; nullptr; &#x2F;&#x2F; Foo 类的 vtable map</p>
+<p>2. 初始化阶段：构造函数中注册所有可能的虚表<br>_VLTRegisterPair(&amp;ZN3Foo11vtablemapE, &amp;ZTV3Foo); &#x2F;&#x2F; Foo 的 vtable<br>_VLTRegisterPair(&amp;ZN3Foo11vtablemapE, &amp;ZTV3Bar); &#x2F;&#x2F; 派生类 Bar 的 vtable</p>
+<p>3. 虚函数调用前插入验证：<br>Foo obj &#x3D; …;<br>void *vtable_ptr &#x3D; *(void*)obj; &#x2F;&#x2F; 读取对象的 vtable 指针<br>vtableptr &#x3D; _VLTVerifyVtablePointer(&amp;ZN3Foo11vtablemapE, vtableptr);<br>如果 vtableptr 不在有效集合中，_vtvverify_fail() 终止程序</p>
+<p>对比：</p>
+<p>&#x2F;&#x2F; 原始代码</p>
+<p>obj-&gt;virtual_function();</p>
+<p>&#x2F;&#x2F; 插桩后</p>
+<p>vtable_ptr &#x3D; __VLTVerifyVtablePointer(&amp;class_vtable_map, obj-&gt;__vptr);</p>
+<p>&#x2F;&#x2F; 然后才进行虚函数调用</p>
+<p>4. 实际虚函数调用：<br>int offset &#x3D; …;<br>auto func &#x3D; *(vtable_ptr + offset);<br>func(obj, args);<br>```</p>
+<p>数据结构：<br>- vtable_map：HashMap，key &#x3D; 类名，value &#x3D; vtable 指针集合（Set）<br>- 保护机制：VTV 数据在初始化后设为只读（mprotect）</p>
+<p>能力总结：</p>
+<p>1.虚表指针损坏攻击：堆溢出、UAF 等导致虚表指针被篡改</p>
+<p>2.类型混淆 (部分): 将对象当作完全无关的类使用</p>
+<p>3. COOP 攻击 (部分): 限制可用的虚函数 gadget</p>
+<p>潜在绕过点及攻击面分析：<br>1. 多重继承漏洞：<br>复杂的多重继承层次可能导致 VTV 漏报某些合法虚表<br>如果编译器分析不完整，攻击者可能找到未注册的合法虚表</p>
+<p>虚表集合污染：</p>
+<p>如果在初始化阶段存在内存破坏漏洞，可以注入恶意虚表指针</p>
+<p>虽然 VTV 数据最终变为只读，但初始化期间是可写的</p>
+<p>2、RELRO 绕过：</p>
+<p>VTV 依赖 RELRO（RELocation Read-Only）保护 vtable map</p>
+<p>如果 RELRO 未启用或被绕过，攻击者可直接修改 vtable map</p>
+<p>3、类型混淆：</p>
+<p>如果存在类型混淆漏洞（如 C++ 的 union、reinterpret_cast），攻击者可能使用错误类型的对象</p>
+<p>VTV 只检查虚表是否在声明类型的有效集合中，但无法阻止使用错误类型的对象</p>
+<p>4、性能优化绕过：</p>
+<p>编译器可能优化掉某些 VTV 检查（如果认为是冗余的）</p>
+<p>攻击者可能利用这些优化缺口</p>
+<h3 id="2-Intel-CET"><a href="#2-Intel-CET" class="headerlink" title="2.Intel CET"></a>2.Intel CET</h3><h4 id="1）IBT（间接分支跟踪）-保护间接调整"><a href="#1）IBT（间接分支跟踪）-保护间接调整" class="headerlink" title="1）IBT（间接分支跟踪） 保护间接调整"></a>1）IBT（间接分支跟踪） 保护间接调整</h4><p>IBT核心：CPU 维护状态机,监控所有间接控制流转移(call *reg, jmp *mem),确保目标地址的第一条指令是endbr64&#x2F;endbr32,否则触发 #CP (Control Protection) 异常。</p>
+<p>Gcc-11.4&#x2F;gcc&#x2F;config&#x2F;i386&#x2F;i386.opt文件中定义了编译选项，对应标志位定义如下</p>
+<p>#define CF_NONE   0</p>
+<p>#define CF_BRANCH 1  &#x2F;&#x2F; IBT</p>
+<p>#define CF_RETURN 2  &#x2F;&#x2F; Shadow Stack</p>
+<p>#define CF_FULL   3  &#x2F;&#x2F; 两者都启用</p>
+<p>介绍特殊操作类型：unspec、unspec_volatile</p>
+<p>GCC RTL 中的一种特殊表达式类型</p>
+<p>类似汇编器的伪指令，层次不同</p>
+<p>目的：</p>
+<p>保护endbr64的插入，具体如下：<br>(define_insn “nop_endbr”</p>
+<p>&nbsp; [(unspec_volatile [(const_int 0)] UNSPECV_NOP_ENDBR)]</p>
+<p>&nbsp; “(flag_cf_protection &amp; CF_BRANCH)”</p>
+<p>{</p>
+<p>&nbsp; return TARGET_64BIT ? “endbr64” : “endbr32”;</p>
+<p>}</p>
+<p>&nbsp; [(set_attr “length” “4”)</p>
+<p>&nbsp;  (set_attr “type” “other”)])</p>
+<p>定义一个名为 nop_endbr 的指令模式，</p>
+<p>unspec_volatile: 标记为不可优化的特殊操作(防止被删除&#x2F;重排)</p>
+<p>UNSPECV_NOP_ENDBR: 唯一标识符,区分不同的unspec操作</p>
+<p>（flag_cf_protection &amp; CF_BRANCH)</p>
+<p>生成条件: 只有当启用了IBT分支保护时才生成这条指令</p>
+<p>在i386.c中定义了对应的插入逻辑，具体如下：</p>
+<p>这里说一下为什么要有endbr64:我如果直接call foo()，cpu知道确切的地址</p>
+<p>但是我用call eax,寄存器里的值可能额比篡改，所以必须要endbr</p>
+<p>然后此时，就有多种插入情况：正常的函数、异常catch,多重类继承</p>
+<p>因为多重继承时指针对应的函数地址不对,需要thunk函数来调整实例的指针,指向对应对象函数的正确地址。此时没有 AST 结构,不会进入正常的函数生成流程,所以不会自动生成 endbr64”</p>
+<table>
+<thead>
+<tr>
+<th><strong>调用方式</strong></th>
+<th><strong>vtable中存储的</strong></th>
+<th><strong>原因</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>通过<strong>第一个基类</strong>指针</td>
+<td><strong>直接函数地址</strong></td>
+<td>this 指针天然正确</td>
+</tr>
+<tr>
+<td>通过<strong>第二个及后续基类</strong>指针</td>
+<td><strong>Thunk 地址</strong></td>
+<td>this 指针有偏移,需要调整</td>
+</tr>
+<tr>
+<td>直接通过 Derived 指针</td>
+<td><strong>直接函数地址</strong></td>
+<td>this 指针正确</td>
+</tr>
+</tbody></table>
+<p>正常函数由通用编译器机制自动触发：</p>
+<p>Thunk函数，要做专门处理：</p>
+<p>static void</p>
+<p>x86_output_mi_thunk (FILE *file, tree thunk_fndecl, HOST_WIDE_INT delta,</p>
+<p>&nbsp;        HOST_WIDE_INT vcall_offset, tree function)</p>
+<p>{</p>
+<p>&nbsp; &#x2F;&#x2F; … 设置参数和寄存器 …</p>
+<p>&nbsp; emit_note (NOTE_INSN_PROLOGUE_END);</p>
+<p>&nbsp; &#x2F;* CET is enabled, insert EB instruction.  *&#x2F;</p>
+<p>&nbsp; if ((flag_cf_protection &amp; CF_BRANCH))</p>
+<p>&nbsp;   emit_insn (gen_nop_endbr ());</p>
+<p>&nbsp; &#x2F;&#x2F; … 函数主体代码 …</p>
+<p>}</p>
+<p>Linux kernel的实现</p>
+<p>内核的场景</p>
+<p>1、纯汇编代码入口</p>
+<p>arch&#x2F;x86&#x2F;entry&#x2F;entry_64.S - 系统调用入口</p>
+<p>SYM_CODE_START(entry_SYSCALL_64)</p>
+<p>ASM_ENDBR &#x2F;&#x2F; gcc不知道这是函数入口</p>
+<p>swapgs</p>
+<p>movq %rsp, PER_CPU_VAR(cpu_tss_rsp0)</p>
+<p>…</p>
+<p>SYM_CODE_END(entry_SYSCALL_64)</p>
+<p>2、内联汇编入口</p>
+<p>&#x2F;* 中断处理器 *&#x2F;</p>
+<p>void __noinstr do_page_fault(struct pt_regs *regs, unsigned long error_code)</p>
+<p>{</p>
+<p>asm volatile(</p>
+<p>ASM_ENDBR &#x2F;* ← 手动插入! *&#x2F;</p>
+<p>“movq %%cr2, %0\n\t”</p>
+<p>: “&#x3D;r” (address)</p>
+<p>);</p>
+<p>handle_page_fault(address, error_code);</p>
+<p>}</p>
+<p>GCC 会在函数开头自动插入 endbr64</p>
+<p>但如果内联汇编有跳转标签,GCC 不知道需要保护</p>
+<p>必须在汇编代码中手动加 ASM_ENDBR</p>
+<p>3、动态生成的代码 - BPF JIT</p>
+<p>4、特殊的函数指针表</p>
+<p>特殊函数，禁用endbr64，启用__noendbr</p>
+<p>为什么内核要自己实现？</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>原因</strong></td>
+<td><strong>说明</strong></td>
+</tr>
+<tr>
+<td><strong><strong>GCC覆盖不全</strong></strong></td>
+<td><strong>汇编代码、内联汇编、动态代码生成都需要手动处理</strong></td>
+</tr>
+<tr>
+<td><strong><strong>精确控制</strong></strong></td>
+<td><strong>内核需要明确哪些代码需要&#x2F;不需要保护</strong></td>
+</tr>
+<tr>
+<td><strong><strong>性能优化</strong></strong></td>
+<td><strong>某些路径可以安全地禁用endbr</strong></td>
+</tr>
+<tr>
+<td><strong><strong>工具链验证</strong></strong></td>
+<td><strong>objtool需要统一的宏来识别endbr指令</strong></td>
+</tr>
+<tr>
+<td><strong><strong>可移植性</strong></strong></td>
+<td><strong>32&#x2F;64位、不同架构统一接口</strong></td>
+</tr>
+</tbody></table>
+<p>GCC 的 -fcf-protection 只是基础设施,内核需要在此基础上:</p>
+<p>1、补充 GCC 看不到的地方(汇编入口)</p>
+<p>2、优化 GCC 过度保护的地方(__noendbr)</p>
+<p>3、验证整个系统的正确性(objtool)</p>
+<p>所以内核的 ASM_ENDBR 和 __noendbr 是对 GCC 功能的扩展和精细化控制,而不是重复实现!</p>
+<p>Legacy位图（内核特性），不检查endbrr64</p>
+<p>在内核的 IBT 位图中标记这个地址不需要检查</p>
+<p>mark_ibt_legacy(special_func);</p>
+<p>其他：endbr sealing必要</p>
+<p>把不需要的 endbr 替换成 nop,减少攻击面（减少gadget），</p>
+<p>状态机：IDLE和Wait_for_endbr的转换</p>
+<p>Endbr64编码：F3 0F 1E FA</p>
+<p>REP前缀，NOP操作码  </p>
+<p>多一个：Spectre v2 是一种CPU 侧信道攻击,利用分支预测器泄露信息。</p>
+<p>现代 CPU 为了性能,会提前猜测跳转目标:</p>
+<p>能力：</p>
+<p>ROP（一般）、JOP</p>
+<p>无法：ret、数据劫持(直接构造endbr64)、直接跳转：jmp 0x…..</p>
+<p>注入notrack前缀，绕过IBT检查，如上侧的switch跳转展示，临时禁用IBT</p>
+<h4 id="2）Shadow-Stack-保护返回地址"><a href="#2）Shadow-Stack-保护返回地址" class="headerlink" title="2）Shadow Stack 保护返回地址"></a>2）Shadow Stack 保护返回地址</h4><p>专用于防ROP，硬件辅助CFI，核心如下：</p>
+<p>每次 CALL 指令：CPU 自动将返回地址同时推入常规栈和 Shadow Stack</p>
+<p>每次 RET 指令：CPU 自动比较两个栈上的返回地址</p>
+<p>如果不一致：触发 #CP (Control Protection Exception)</p>
+<p>Shadow Stack 上的返回地址完全由 CPU 硬件自动生成，软件无法直接干预：</p>
+<p>Shadow Stack 的写入使用特殊总线事务，普通 MOV 指令无法写入</p>
+<p>1、页表标记为 Shadow Stack 页 (_PAGE_TABLE 标志位)</p>
+<p>2、只有以下指令可以写入 Shadow Stack：</p>
+<p>&nbsp; CALL 自动推入返回地址</p>
+<p>&nbsp; WRSS 特权指令，只有内核可用</p>
+<p>&nbsp; RSTORSSP 恢复 Shadow Stack 指针</p>
+<p>在arch&#x2F;x86&#x2F;kernel&#x2F;shstk.c中定义页分配：</p>
+<p>&#x2F;&#x2F; Shadow Stack 页分配</p>
+<p>static unsigned long allocate_shadow_stack(unsigned long size)</p>
+<p>{</p>
+<p>&nbsp;   unsigned long addr;</p>
+<p>&nbsp;   addr &#x3D; do_mmap(NULL, 0, size,</p>
+<p>&nbsp;                  PROT_READ,  &#x2F;&#x2F; 注意：只读！</p>
+<p>&nbsp;                  MAP_PRIVATE | MAP_ANONYMOUS,</p>
+<p>&nbsp;                  0, 0, &amp;uf, NULL);</p>
+<p>&nbsp;   &#x2F;&#x2F; 将页表项标记为 Shadow Stack</p>
+<p>&nbsp;   &#x2F;&#x2F; 这会设置特殊的页表标志，使得只有硬件才能写入</p>
+<p>&nbsp;   if (map_shadow_stack(addr, size, &amp;shstk_token))</p>
+<p>&nbsp;       return -EINVAL;</p>
+<p>&nbsp;   return addr;</p>
+<p>}</p>
+<p>&#x2F;&#x2F; 页表标记函数</p>
+<p>static int map_shadow_stack(unsigned long addr, unsigned long size,</p>
+<p>&nbsp;                          unsigned long *shstk_token)</p>
+<p>{</p>
+<p>&nbsp;   &#x2F;&#x2F; 设置页表项的 Shadow Stack 标志</p>
+<p>&nbsp;   &#x2F;&#x2F; _PAGE_DIRTY 被重用为 Shadow Stack 标志位</p>
+<p>&nbsp;   apply_to_page_range(&amp;init_mm, addr, size,</p>
+<p>&nbsp;                      set_shadow_stack_pte, NULL);</p>
+<p>&nbsp;   &#x2F;&#x2F; 写入 Shadow Stack Token（用于 RSTORSSP）</p>
+<p>&nbsp;   *shstk_token &#x3D; addr + size - 8;</p>
+<p>&nbsp;   wrss(addr + size - 8, TOKEN_VALUE);  &#x2F;&#x2F; 内核特权指令</p>
+<p>&nbsp;   return 0;</p>
+<p>}</p>
+<p>Shadow Stack 页在用户空间只读</p>
+<p>如何检查：<br>RET:</p>
+<p>&nbsp;   # 1. 从常规栈弹出返回地址</p>
+<p>&nbsp;   ret_addr_stack &#x3D; [RSP]</p>
+<p>&nbsp;   RSP +&#x3D; 8</p>
+<p>&nbsp;   # 2. 从 Shadow Stack 弹出返回地址</p>
+<p>&nbsp;   ret_addr_shadow &#x3D; shadow_stack_load(SSP)</p>
+<p>&nbsp;   SSP +&#x3D; 8</p>
+<p>&nbsp;   # 3. 比较（硬件自动）</p>
+<p>&nbsp;   if (ret_addr_stack !&#x3D; ret_addr_shadow):</p>
+<p>&nbsp;       raise #CP(RET_MISMATCH)  # 触发控制保护异常</p>
+<p>&nbsp;   # 4. 跳转</p>
+<p>&nbsp;   RIP &#x3D; ret_addr_stack</p>
+<p>初始化代码：</p>
+<p>&#x2F;&#x2F; arch&#x2F;x86&#x2F;kernel&#x2F;cpu&#x2F;common.c</p>
+<p>void setup_shadow_stack(void)</p>
+<p>{</p>
+<p>&nbsp;   u64 msr_val;</p>
+<p>&nbsp;   &#x2F;&#x2F; 读取当前 CET 配置</p>
+<p>&nbsp;   rdmsrl(MSR_IA32_U_CET, msr_val);</p>
+<p>&nbsp;   &#x2F;&#x2F; 启用 Shadow Stack</p>
+<p>&nbsp;   msr_val |&#x3D; CET_SHSTK_EN;</p>
+<p>&nbsp;   &#x2F;&#x2F; 写回 MSR</p>
+<p>&nbsp;   wrmsrl(MSR_IA32_U_CET, msr_val);</p>
+<p>&nbsp;   &#x2F;&#x2F; 设置 Shadow Stack Pointer</p>
+<p>&nbsp;   wrmsrl(MSR_IA32_PL3_SSP, shadow_stack_addr);</p>
+<p>}</p>
+<p>错误示例：<br>&#x2F;&#x2F; 攻击者尝试修改返回地址</p>
+<p>void vulnerable() {</p>
+<p>&nbsp;   char buf[16];</p>
+<p>&nbsp;   gets(buf);  &#x2F;&#x2F; 栈溢出</p>
+<p>}</p>
+<p>&#x2F;&#x2F; 正常执行：</p>
+<p>&#x2F;&#x2F; 常规栈: 0x400500</p>
+<p>&#x2F;&#x2F; Shadow Stack: 0x400500</p>
+<p>&#x2F;&#x2F; RET 成功</p>
+<p>&#x2F;&#x2F; 攻击后：</p>
+<p>&#x2F;&#x2F; 常规栈: 0xdeadbeef (被修改)</p>
+<p>&#x2F;&#x2F; Shadow Stack: 0x400500 (硬件保护，未被修改)</p>
+<p>&#x2F;&#x2F; RET → #CP(RET_MISMATCH) → SIGSEGV</p>
+<p>每个进程有独立的Shadow Stack ,上下文切换逻辑（Token机制），线程同步机制（区别其他线程不能RSTORSSP切换道Shadow Stack）,fork分配新的shadow stack,exec的机制实现不做赘述</p>
+<p>Shadow Stack 支持通过 ELF 的.note.gnu.property段声明：</p>
+<p>.section .note.gnu.property, “a”</p>
+<p>.p2align 3</p>
+<p>.long 1f - 0f          &#x2F;* name length *&#x2F;</p>
+<p>.long 5f - 2f          &#x2F;* data length *&#x2F;</p>
+<p>.long 5                &#x2F;* note type (NT_GNU_PROPERTY_TYPE_0) *&#x2F;</p>
+<p>0:</p>
+<p>&nbsp;   .asciz “GNU”       &#x2F;* vendor name *&#x2F;</p>
+<p>1:</p>
+<p>.p2align 3</p>
+<p>2:</p>
+<p>&nbsp;   .long 0xc0000002   &#x2F;* GNU_PROPERTY_X86_FEATURE_1_AND *&#x2F;</p>
+<p>&nbsp;   .long 4f - 3f      &#x2F;* property size *&#x2F;</p>
+<p>3:</p>
+<p>&nbsp;   .long 0x00000001   &#x2F;* GNU_PROPERTY_X86_FEATURE_1_SHSTK *&#x2F;</p>
+<p>4:</p>
+<p>.p2align 3</p>
+<p>5:</p>
+<p>在编译时不会产生而外指令，仅ret时逻辑有区别</p>
+<p>补：在Clang 中软件实现的影子栈： Clang ShadowCallStack</p>
+<p>这个就是编译器插桩实现，开销比较大，但是没有硬件要求</p>
+<p>缺陷及攻击面分析</p>
+<h4 id="3）编译器实现（GCC）"><a href="#3）编译器实现（GCC）" class="headerlink" title="3）编译器实现（GCC）"></a><strong>3）编译器实现（GCC）</strong></h4><p><strong>对应i386,ENDBR 指令宏定义</strong></p>
+<p># if defined _<em>CET</em>_ &amp;&amp; (_<em>CET</em>_ &amp; 1) !&#x3D; 0</p>
+<p>#  ifdef _<em>x86_64</em>_</p>
+<p>#   define _CET_ENDBR endbr64</p>
+<p>#  else</p>
+<p>#   define _CET_ENDBR endbr32</p>
+<p>#  endif</p>
+<p># else</p>
+<p>#  define _CET_ENDBR</p>
+<p># endif</p>
+<p><strong>插入 ENDBR 指令</strong></p>
+<p>&nbsp; &#x2F;* CET is enabled, insert EB instruction.  *&#x2F;</p>
+<p>&nbsp; if ((flag_cf_protection &amp; CF_BRANCH))</p>
+<p>&nbsp;   emit_insn (gen_nop_endbr ());</p>
+<h4 id="4）内核支持（Linux）"><a href="#4）内核支持（Linux）" class="headerlink" title="4）内核支持（Linux）"></a><strong>4）内核支持（Linux）</strong></h4><p><strong>ENDBR 汇编宏</strong></p>
+<p>#ifdef CONFIG_X86_64</p>
+<p>#define ASM_ENDBR   “endbr64\n\t”</p>
+<p>#else</p>
+<p>#define ASM_ENDBR   “endbr32\n\t”</p>
+<p>#endif</p>
+<p><strong>IBT 违规处理</strong></p>
+<p>static void do_kernel_cp_fault(struct pt_regs *regs, unsigned long error_code)</p>
+<p>{</p>
+<p>&nbsp;   if ((error_code &amp; CP_EC) !&#x3D; CP_ENDBR) {</p>
+<p>&nbsp;       do_unexpected_cp(regs, error_code);</p>
+<p>&nbsp;       return;</p>
+<p>&nbsp;   }</p>
+<p>&nbsp;   if (unlikely(regs-&gt;ip &#x3D;&#x3D; (unsigned long)&amp;ibt_selftest_noendbr)) {</p>
+<p>&nbsp;       regs-&gt;ax &#x3D; 0;</p>
+<p>&nbsp;       return;</p>
+<p>&nbsp;   }</p>
+<p>&nbsp;   pr_err(“Missing ENDBR: %pS\n”, (void *)instruction_pointer(regs));</p>
+<p>&nbsp;   if (!ibt_fatal) {</p>
+<p>&nbsp;       printk(KERN_DEFAULT CUT_HERE);</p>
+<p>&nbsp;       __warn(_<em>FILE</em>_, _<em>LINE</em>_, (void *)regs-&gt;ip, TAINT_WARN, regs, NULL);</p>
+<p>&nbsp;       return;</p>
+<p>&nbsp;   }</p>
+<p>&nbsp;   BUG();</p>
+<p>}</p>
+<p><strong>ENDBR Sealing</strong></p>
+<p>static void __init_or_module poison_endbr(void *addr, bool warn)</p>
+<p>{</p>
+<p>&nbsp;   u32 endbr, poison &#x3D; gen_endbr_poison();</p>
+<p>&nbsp;   if (WARN_ON_ONCE(get_kernel_nofault(endbr, addr)))</p>
+<p>&nbsp;       return;</p>
+<p>&nbsp;   if (!is_endbr(endbr)) {</p>
+<p>&nbsp;       WARN_ON_ONCE(warn);</p>
+<p>&nbsp;       return;</p>
+<p>&nbsp;   }</p>
+<p>&nbsp;   DPRINTK(ENDBR, “ENDBR at: %pS (%px)”, addr, addr);</p>
+<p>&nbsp;   &#x2F;*</p>
+<p>&nbsp;    * When we have IBT, the lack of ENDBR will trigger #CP</p>
+<p>&nbsp;    *&#x2F;</p>
+<p>&nbsp;   DUMP_BYTES(ENDBR, ((u8*)addr), 4, “%px: orig: “, addr);</p>
+<p>&nbsp;   DUMP_BYTES(ENDBR, ((u8*)&amp;poison), 4, “%px: repl: “, addr);</p>
+<p>&nbsp;   text_poke_early(addr, &amp;poison, 4);</p>
+<p>}</p>
+<p>&#x2F;*</p>
+<p>&nbsp;* Generated by: objtool –ibt</p>
+<p>&nbsp;*</p>
+<p>&nbsp;* Seal the functions for indirect calls by clobbering the ENDBR instructions</p>
+<p>&nbsp;* and the kCFI hash value.</p>
+<p>&nbsp;*&#x2F;</p>
+<p>void __init_or_module noinline apply_seal_endbr(s32 *start, s32 *end)</p>
+<p>{</p>
+<p>&nbsp;   s32 *s;</p>
+<p>&nbsp;   for (s &#x3D; start; s &lt; end; s++) {</p>
+<p>&nbsp;       void *addr &#x3D; (void *)s + *s;</p>
+<p>&nbsp;       poison_endbr(addr, true);</p>
+<p>&nbsp;       if (IS_ENABLED(CONFIG_FINEIBT))</p>
+<p>&nbsp;           poison_cfi(addr - 16);</p>
+<p>&nbsp;   }</p>
+<p>}</p>
+<p>硬件支持</p>
+<p>实现机制：</p>
+<ol>
+<li>GCC 在每个可能被间接调用的函数开头插入 endbr64：<br>function_start:<br>endbr64 # 0xF3 0x0F 0x1E 0xFA<br>push %rbp</li>
+<li>间接跳转&#x2F;调用时，CPU 检查目标地址是否以 endbr64 开头：<br>call *%rax # 如果 *%rax 不是 endbr64，触发 #CP 异常</li>
+<li>Linux 内核处理 #CP 异常：<br>exccontrolprotection:<br>if (errorcode &#x3D;&#x3D; CPENDBR)<br>pr_err(Missing ENDBR: %p, regs-&gt;ip);<br>BUG(); # 终止进程</li>
+</ol>
+<p><strong>对Intel IBT&#x2F;CET（间接分支跟踪）潜在绕过点分析</strong></p>
+<ol>
+<li>1. JOP（Jump-Oriented Programming）：</li>
+<li>- 攻击者可以构造跳转链，只跳转到有 endbr64 的合法位置<br>- Linux 内核的 apply_seal_endbr() 机制可以封闭不应被间接调用的函数，但需要 objtool 正确标记</li>
+</ol>
+<p>1）数据段跳转：</p>
+<p>如果攻击者能在数据段构造 0xF3 0x0F 0x1E 0xFA（endbr64 的字节码），并跳转到该位置</p>
+<p>2）Return-to-ENDBR：</p>
+<p>类似 ROP，但只返回到带 endbr64 的 gadget</p>
+<p>粒度：粗粒度，任何带 endbr64 的位置都是合法目标</p>
+<p>3）内核模块加载绕过：</p>
+<p>如果内核模块没有正确编译启用 IBT，可能成为攻击入口</p>
+<h3 id="3-Stack-Canary"><a href="#3-Stack-Canary" class="headerlink" title="3.Stack Canary"></a>3.Stack Canary</h3><p>在栈帧中插入随机值，建立检测点</p>
+<p>检测时返回前对比 Canary若发现修改则响应立即终止程序</p>
+<h4 id="1）Glibc-运行时实现："><a href="#1）Glibc-运行时实现：" class="headerlink" title="1）Glibc:运行时实现："></a><strong>1）Glibc:运行时实现：</strong></h4><p>源码存在一个Canary的全局变量：uintptr_t __stack_chk_guard attribute_relro;</p>
+<p>对Canary的初始化：</p>
+<p>&nbsp; uintptr_t stack_chk_guard &#x3D; _dl_setup_stack_chk_guard (_dl_random);</p>
+<p># ifdef THREAD_SET_STACK_GUARD</p>
+<p>&nbsp; THREAD_SET_STACK_GUARD (stack_chk_guard);</p>
+<p># else</p>
+<p>&nbsp; __stack_chk_guard &#x3D; stack_chk_guard;</p>
+<p>Canary值的生成逻辑：</p>
+<p>负责生成一个随机的栈保护值，用于检测栈溢出攻击。</p>
+<p>_dl_setup_stack_chk_guard (void *dl_random)</p>
+<p>{</p>
+<p>&nbsp; Union&#x2F;&#x2F;允许同时以整数和字节数组两种方式操作同一块内存</p>
+<p>&nbsp; {</p>
+<p>&nbsp;   uintptr_t num;</p>
+<p>&nbsp;   unsigned char bytes[sizeof (uintptr_t)];</p>
+<p>&nbsp; } ret &#x3D; { 0 };</p>
+<p>&nbsp; if (dl_random &#x3D;&#x3D; NULL) 无随机源</p>
+<p>&nbsp;   {</p>
+<p>&nbsp;     ret.bytes[sizeof (ret) - 1] &#x3D; 255;</p>
+<p>&nbsp;     ret.bytes[sizeof (ret) - 2] &#x3D; ‘\n’;</p>
+<p>C 语言字符串以 \0 结尾</p>
+<p>最低字节为 0x00 意味着 canary 值包含字符串终止符</p>
+<p>&nbsp;   }</p>
+<p>&nbsp; Else 有随机源</p>
+<p>&nbsp;   {</p>
+<p>&nbsp;     memcpy (ret.bytes, dl_random, sizeof (ret));</p>
+<p>#if BYTE_ORDER &#x3D;&#x3D; LITTLE_ENDIAN</p>
+<p>&nbsp;     无论什么字节序，都要让 Canary 在内存中的第一个字节是 0x00，从而阻止字符串函数泄露完整值！</p>
+<p>ret.num &amp;&#x3D; ~(uintptr_t) 0xff;</p>
+<p>#elif BYTE_ORDER &#x3D;&#x3D; BIG_ENDIAN</p>
+<p>&nbsp;     ret.num &amp;&#x3D; ~((uintptr_t) 0xff &lt;&lt; (8 * (sizeof (ret) - 1)));</p>
+<p>#else</p>
+<p># error “BYTE_ORDER unknown”</p>
+<p>#endif</p>
+<p>&nbsp;   }</p>
+<p>&nbsp; return ret.num;</p>
+<p>}</p>
+<p>Canary 检查失败处理</p>
+<p>void</p>
+<p>_<em>attribute</em>_ ((noreturn))</p>
+<p>__stack_chk_fail (void)</p>
+<p>{</p>
+<p>&nbsp; __fortify_fail (“stack smashing detected”);</p>
+<p>}</p>
+<p>strong_alias (__stack_chk_fail, __stack_chk_fail_local)</p>
+<p>__stack_chk_fail() 调用 __fortify_fail()</p>
+<p>对应 __fortify_fail()</p>
+<p>void</p>
+<p>_<em>attribute</em>_ ((noreturn))</p>
+<p>__fortify_fail (const char *msg)</p>
+<p>{</p>
+<p>&nbsp; &#x2F;* The loop is added only to keep gcc happy.  *&#x2F;</p>
+<p>&nbsp; while (1)</p>
+<p>&nbsp;   __libc_message (do_abort, “*** %s ***: terminated\n”, msg);</p>
+<p>}</p>
+<p>libc_hidden_def (__fortify_fail)</p>
+<p>在 libc 启动时生成随机 canary 值（清除最低字节避免 \x00 截断）<br>uintptrt stackchkguard &#x3D; _dlsetupstackchkguard(dl_random);</p>
+<h4 id="2）GCC-的插桩实现"><a href="#2）GCC-的插桩实现" class="headerlink" title="2）GCC 的插桩实现"></a>2）GCC 的插桩实现</h4><p>变量分类（是否需要保护）：stack_protect_classify_type()</p>
+<p>&#x2F;* Examine TYPE and determine a bit mask of the following features.  *&#x2F;</p>
+<p>#define SPCT_HAS_LARGE_CHAR_ARRAY  1  &#x2F;&#x2F; char数组 &gt;&#x3D; 8字节（风险高）</p>
+<p>#define SPCT_HAS_SMALL_CHAR_ARRAY  2  &#x2F;&#x2F; char数组 &lt; 8字节</p>
+<p>#define SPCT_HAS_ARRAY             4  &#x2F;&#x2F; 任意数组</p>
+<p>#define SPCT_HAS_AGGREGATE         8  &#x2F;&#x2F; 结构体&#x2F;联合体</p>
+<p>递归检查所有字段，因为结构体内包含危险字符数组</p>
+<p>static unsigned int</p>
+<p>stack_protect_classify_type (tree type)</p>
+<p>{</p>
+<p>&nbsp; unsigned int ret &#x3D; 0;</p>
+<p>&nbsp; tree t;</p>
+<p>&nbsp; switch (TREE_CODE (type))</p>
+<p>&nbsp;   {</p>
+<p>&nbsp;   case ARRAY_TYPE:</p>
+<p>&nbsp;     t &#x3D; TYPE_MAIN_VARIANT (TREE_TYPE (type));</p>
+<p>&nbsp;     if (t &#x3D;&#x3D; char_type_node</p>
+<p>&nbsp;   || t &#x3D;&#x3D; signed_char_type_node</p>
+<p>&nbsp;   || t &#x3D;&#x3D; unsigned_char_type_node)</p>
+<p>&nbsp; {</p>
+<p>&nbsp;   unsigned HOST_WIDE_INT max &#x3D; param_ssp_buffer_size;</p>
+<p>&nbsp;   unsigned HOST_WIDE_INT len;</p>
+<p>&nbsp;   if (!TYPE_SIZE_UNIT (type)</p>
+<p>&nbsp;       || !tree_fits_uhwi_p (TYPE_SIZE_UNIT (type)))</p>
+<p>&nbsp;     len &#x3D; max;</p>
+<p>&nbsp;   else</p>
+<p>&nbsp;     len &#x3D; tree_to_uhwi (TYPE_SIZE_UNIT (type));</p>
+<p>&nbsp;   if (len &lt; max)</p>
+<p>&nbsp;     ret &#x3D; SPCT_HAS_SMALL_CHAR_ARRAY | SPCT_HAS_ARRAY;</p>
+<p>&nbsp;   else</p>
+<p>&nbsp;     ret &#x3D; SPCT_HAS_LARGE_CHAR_ARRAY | SPCT_HAS_ARRAY;</p>
+<p>&nbsp; }</p>
+<p>&nbsp;     else</p>
+<p>&nbsp; ret &#x3D; SPCT_HAS_ARRAY;</p>
+<p>&nbsp;     break;</p>
+<p>&nbsp;   case UNION_TYPE:</p>
+<p>&nbsp;   case QUAL_UNION_TYPE:</p>
+<p>&nbsp;   case RECORD_TYPE:</p>
+<p>&nbsp;     ret &#x3D; SPCT_HAS_AGGREGATE;</p>
+<p>&nbsp;     for (t &#x3D; TYPE_FIELDS (type); t ; t &#x3D; TREE_CHAIN (t))</p>
+<p>&nbsp; if (TREE_CODE (t) &#x3D;&#x3D; FIELD_DECL)</p>
+<p>&nbsp;   ret |&#x3D; stack_protect_classify_type (TREE_TYPE (t));</p>
+<p>&nbsp;     break;</p>
+<p>&nbsp;   default:</p>
+<p>&nbsp;     break;</p>
+<p>&nbsp;   }</p>
+<p>&nbsp; return ret;</p>
+<p>}</p>
+<p>决定哪些变量需要保护：stack_protect_decl_phase()</p>
+<p>&#x2F;* Return nonzero if DECL should be segregated into the “vulnerable” upper</p>
+<p>&nbsp;  part of the local stack frame.  Remember if we ever return nonzero for</p>
+<p>&nbsp;  any variable in this function.  The return value is the phase number in</p>
+<p>&nbsp;  which the variable should be allocated.  *&#x2F;</p>
+<p>内存位置的不同，栈布局</p>
+<p>static int</p>
+<p>stack_protect_decl_phase (tree decl)</p>
+<p>{</p>
+<p>&nbsp; unsigned int bits &#x3D; stack_protect_classify_type (TREE_TYPE (decl));</p>
+<p>&nbsp; int ret &#x3D; 0;</p>
+<p>先判断类型</p>
+<p>&nbsp; if (bits &amp; SPCT_HAS_SMALL_CHAR_ARRAY) &#x2F;&#x2F;记录是否有小的缓冲区，部分优化可能回跳过小数组的保护</p>
+<p>&nbsp;   has_short_buffer &#x3D; true;</p>
+<p>检查函数保护</p>
+<p>&nbsp; tree attribs &#x3D; DECL_ATTRIBUTES (current_function_decl);</p>
+<p>&nbsp; if (!lookup_attribute (“no_stack_protector”, attribs)</p>
+<p>&nbsp;     &amp;&amp; (flag_stack_protect &#x3D;&#x3D; SPCT_FLAG_ALL 所有</p>
+<p>&nbsp;   || flag_stack_protect &#x3D;&#x3D; SPCT_FLAG_STRONG 有数组&#x2F;地址操作的函数</p>
+<p>&nbsp;   || (flag_stack_protect &#x3D;&#x3D; SPCT_FLAG_EXPLICIT 有大字符数组的函数</p>
+<p>&nbsp;       &amp;&amp; lookup_attribute (“stack_protect”, attribs))))</p>
+<p>&nbsp;   {</p>
+<p>&nbsp;     if ((bits &amp; (SPCT_HAS_SMALL_CHAR_ARRAY | SPCT_HAS_LARGE_CHAR_ARRAY))</p>
+<p>&nbsp;   &amp;&amp; !(bits &amp; SPCT_HAS_AGGREGATE))</p>
+<p>&nbsp; ret &#x3D; 1; 高优先级保护&#x2F;&#x2F;&#x2F;有字符数组且不是结构体的一部分</p>
+<p>&nbsp;     else if (bits &amp; SPCT_HAS_ARRAY)</p>
+<p>&nbsp; ret &#x3D; 2; 低优先级</p>
+<p>&nbsp;   }</p>
+<p>&nbsp; else</p>
+<p>&nbsp;   ret &#x3D; (bits &amp; SPCT_HAS_LARGE_CHAR_ARRAY) !&#x3D; 0; &#x2F;&#x2F;不需要要特殊保护</p>
+<p>&nbsp; if (ret)</p>
+<p>&nbsp;   has_protected_decls &#x3D; true;</p>
+<p>&nbsp; return ret;</p>
+<p>}</p>
+<p>ret 含义  栈位置   典型变量</p>
+<p>0 不需要特殊保护  canary 上方（高地址） int, float, pointer</p>
+<p>1 高优先级保护  canary 下方（低地址） char buf[64] 独立数组</p>
+<p>2 低优先级保护  canary 下方，但在ret&#x3D;1上方  int arr[], struct</p>
+<p>任何从 username 或 password 的溢出都必须先穿过 canary。</p>
+<p>GCC 在函数 prologue 插入 canary：</p>
+<p>mov %fs:0x28, %rax # 从 TLS 读取 canary</p>
+<p>mov %rax, -0x8(%rbp) # 放在栈帧底部</p>
+<p>插桩逻辑：</p>
+<p>stack_protect_prologue (void)</p>
+<p>{</p>
+<p>&nbsp; tree guard_decl &#x3D; targetm.stack_protect_guard ();  &#x2F;&#x2F; 获取guard声明</p>
+<p>X86返回的时TLS声明，对应汇编是，%fs:0x28 可以看见上面的场景实验的现象</p>
+<p>&nbsp; rtx x, y;</p>
+<p>&nbsp; crtl-&gt;stack_protect_guard_decl &#x3D; guard_decl; &#x2F;&#x2F;保存供epilogue使用</p>
+<p>&nbsp; x &#x3D; expand_normal (crtl-&gt;stack_protect_guard);  &#x2F;&#x2F; canary栈槽位置</p>
+<p>&nbsp; if (targetm.have_stack_protect_combined_set () &amp;&amp; guard_decl)</p>
+<p>&nbsp;   {</p>
+<p>&nbsp;     &#x2F;* 优化：组合地址计算和复制操作 *&#x2F;</p>
+<p>&nbsp;     gcc_assert (DECL_P (guard_decl));</p>
+<p>&nbsp;     y &#x3D; DECL_RTL (guard_decl);</p>
+<p>&nbsp;     if (rtx_insn *insn &#x3D; targetm.gen_stack_protect_combined_set (x, y))</p>
+<p>&nbsp; {</p>
+<p>&nbsp;   emit_insn (insn);</p>
+<p>&nbsp;   return;</p>
+<p>&nbsp; }</p>
+<p>&nbsp;   }</p>
+<p>&nbsp; &#x2F;* 标准路径：生成两条RTL指令 *&#x2F;</p>
+<p>&nbsp; y &#x3D; targetm.stack_protect_guard ();</p>
+<p>&nbsp; if (y !&#x3D; x)</p>
+<p>&nbsp;   emit_move_insn (x, y);  &#x2F;&#x2F; 将canary值复制到栈槽</p>
+<p>}</p>
+<p>```</p>
+<p>最终现成的汇编：</p>
+<p>mov %fs:0x28, %rax</p>
+<p>mov %rax, -0x8(%rbp)</p>
+<p>GCC 在函数 epilogue 插入检查：</p>
+<p>mov -0x8(%rbp), %rax 将函数开始时保存的 canary 值读入寄存器</p>
+<p>xor %fs:0x28, %rax # 与原始值比较</p>
+<p>je .L2</p>
+<p>call _stackchk_fail # 不匹配则终止程序</p>
+<h4 id="3）完整流程："><a href="#3）完整流程：" class="headerlink" title="3）完整流程："></a>3）完整流程：</h4><p>[程序启动]</p>
+<p>&nbsp;   ↓</p>
+<p>内核提供16字节随机数(AT_RANDOM)</p>
+<p>&nbsp;   ↓</p>
+<p>_dl_setup_stack_chk_guard()</p>
+<p>&nbsp;   ├─ memcpy随机数</p>
+<p>&nbsp;   ├─ 清除最低字节</p>
+<p>&nbsp;   └─ 返回canary值</p>
+<p>&nbsp;   ↓</p>
+<p>存储到TLS (%fs:0x28) 或全局变量</p>
+<p>&nbsp;   ↓</p>
+<p>[GCC编译阶段]</p>
+<p>&nbsp;   ↓</p>
+<p>stack_protect_classify_type() - 分析变量类型</p>
+<p>&nbsp;   ↓</p>
+<p>stack_protect_decl_phase() - 决定是否保护</p>
+<p>&nbsp;   ↓</p>
+<p>stack_protect_prologue() - 生成设置代码</p>
+<p>&nbsp;   mov %fs:0x28, %rax</p>
+<p>&nbsp;   mov %rax, -0x8(%rbp)</p>
+<p>&nbsp;   ↓</p>
+<p>[函数执行]</p>
+<p>&nbsp;   ↓</p>
+<p>[函数返回前]</p>
+<p>&nbsp;   ↓</p>
+<p>Epilogue检查代码</p>
+<p>&nbsp;   mov -0x8(%rbp), %rax</p>
+<p>&nbsp;   xor %fs:0x28, %rax</p>
+<p>&nbsp;   jne __stack_chk_fail</p>
+<p>&nbsp;   ↓</p>
+<p>如果canary被修改：</p>
+<p>&nbsp;   ↓</p>
+<p>__stack_chk_fail()</p>
+<p>&nbsp;   ↓</p>
+<p>__fortify_fail(“stack smashing detected”)</p>
+<p>&nbsp;   ↓</p>
+<p>__libc_message(do_abort, …)</p>
+<p>&nbsp;   ├─ writev输出错误</p>
+<p>&nbsp;   ├─ mmap存储消息</p>
+<p>&nbsp;   └─ abort() 终止进程</p>
+<p>对于Canary的潜在绕过点分析：</p>
+<ol>
+<li> Canary 泄露：如果攻击者能读取栈上的 canary 值（格式化字符串漏洞、信息泄露），可以构造相同 canary 绕过检查<br>2. 直接覆盖返回地址：Canary 只保护 saved RBP 之后的区域，如果能精确控制覆盖返回地址而不破坏 canary 所在位置<br>3. 字节对齐攻击：最低字节被清零（ret.num &amp;&#x3D; ~0xff），某些情况下可能被利用<br>4. 信号处理器攻击：如果程序有信号处理器，且处理器栈帧没有 canary 保护</li>
+</ol>
+<h3 id="4-SafeStack（安全栈）"><a href="#4-SafeStack（安全栈）" class="headerlink" title="4.SafeStack（安全栈）"></a><strong>4.SafeStack（安全栈）</strong></h3><p>栈隔离型CFI技术:通过将栈分为两部分来保护控制流数据：</p>
+<p>Safe Stack（安全栈）：存储返回地址、saved RBP、安全的局部变量（由LLVM后端管理，使用正常栈指针%rsp）</p>
+<p>Unsafe Stack（不安全栈）：存储可能被溢出攻击的变量（显式分配，通过TLS指针访问）</p>
+<p>将可能被攻击的数据（数组、地址被取的变量）隔离到独立的栈上，使栈溢出无法直接覆盖返回地址。</p>
+<h4 id="1）初始化和分配机制"><a href="#1）初始化和分配机制" class="headerlink" title="1）初始化和分配机制"></a>1）初始化和分配机制</h4><p>extern “C” _<em>attribute</em>_((visibility(“default”)))</p>
+<p>#if !SANITIZER_CAN_USE_PREINIT_ARRAY</p>
+<p>_<em>attribute</em>_((constructor(0)))</p>
+<p>#endif</p>
+<p>void __safestack_init() {</p>
+<p>&nbsp; &#x2F;&#x2F; 确定主线程的栈大小</p>
+<p>&nbsp; size_t size &#x3D; kDefaultUnsafeStackSize;  &#x2F;&#x2F; 默认 0x2800000 (40MB)</p>
+<p>&nbsp; size_t guard &#x3D; 4096;  &#x2F;&#x2F; Guard page 大小</p>
+<p>&nbsp; struct rlimit limit;</p>
+<p>&nbsp; if (getrlimit(RLIMIT_STACK, &amp;limit) &#x3D;&#x3D; 0 &amp;&amp; limit.rlim_cur !&#x3D; RLIM_INFINITY)</p>
+<p>&nbsp;   size &#x3D; limit.rlim_cur;  &#x2F;&#x2F; 使用系统栈大小限制</p>
+<p>&nbsp; &#x2F;&#x2F; 为主线程分配 unsafe stack</p>
+<p>&nbsp; void *addr &#x3D; unsafe_stack_alloc(size, guard);</p>
+<p>&nbsp; unsafe_stack_setup(addr, size, guard);</p>
+<p>&nbsp; &#x2F;&#x2F; 设置清理处理器（用于线程退出时释放栈）</p>
+<p>&nbsp; pthread_key_create(&amp;thread_cleanup_key, thread_cleanup_handler);</p>
+<p>}</p>
+<p>程序启动：</p>
+<p>ELF： .preinit_array段 执行 __safestack_init</p>
+<p>&nbsp; 在所有构造函数之前运行</p>
+<p>其他 _<em>attribute</em>_((constructor(0)))</p>
+<p>&nbsp; 作为最高优先级构造函数</p>
+<p>分配：</p>
+<p>inline void *unsafe_stack_alloc(size_t size, size_t guard) {</p>
+<p>&nbsp; SFS_CHECK(size + guard &gt;&#x3D; size);  &#x2F;&#x2F; 检查溢出</p>
+<p>&nbsp; &#x2F;&#x2F; 使用mmap分配匿名内存映射</p>
+<p>&nbsp; void *addr &#x3D; Mmap(nullptr, size + guard, PROT_READ | PROT_WRITE,</p>
+<p>&nbsp;                   MAP_PRIVATE | MAP_ANON, -1, 0);</p>
+<p>&nbsp; SFS_CHECK(MAP_FAILED !&#x3D; addr);</p>
+<p>&nbsp; &#x2F;&#x2F; 设置guard page为不可访问（PROT_NONE）</p>
+<p>&nbsp; Mprotect(addr, guard, PROT_NONE);</p>
+<p>&nbsp; &#x2F;&#x2F; 返回guard page之后的地址</p>
+<p>&nbsp; return (char *)addr + guard;</p>
+<p>}</p>
+<p>变成两块，Guard_page访问触发SIGSEGV</p>
+<h4 id="1）编译器-Pass-实现（LLVM）"><a href="#1）编译器-Pass-实现（LLVM）" class="headerlink" title="1）编译器 Pass 实现（LLVM）"></a>1）<strong>编译器 Pass 实现（LLVM）</strong></h4><p>SafeStack Pass 核心类：class SafeStack</p>
+<p>&#x2F;&#x2F; The SafeStack pass splits the stack of each function into the safe</p>
+<p>&#x2F;&#x2F;&#x2F; stack, which is only accessed through memory safe dereferences (as</p>
+<p>&#x2F;&#x2F;&#x2F; determined statically), and the unsafe stack, which contains all</p>
+<p>&#x2F;&#x2F;&#x2F; local variables that are accessed in ways that we can’t prove to</p>
+<p>&#x2F;&#x2F;&#x2F; be safe.</p>
+<p>class SafeStack {</p>
+<p>&nbsp; Function &F;</p>
+<p>&nbsp; const TargetLoweringBase &TL;</p>
+<p>&nbsp; const DataLayout &DL;</p>
+<p>&nbsp; DomTreeUpdater *DTU;</p>
+<p>&nbsp; ScalarEvolution &SE;</p>
+<p>&nbsp; Type *StackPtrTy;</p>
+<p>&nbsp; Type *IntPtrTy;</p>
+<p>&nbsp; Type *Int32Ty;</p>
+<p>&nbsp; Type *Int8Ty;</p>
+<p>&nbsp; Value *UnsafeStackPtr &#x3D; nullptr;</p>
+<p>&nbsp; &#x2F;&#x2F;&#x2F; Unsafe stack alignment. Each stack frame must ensure that the stack is</p>
+<p>&nbsp; &#x2F;&#x2F;&#x2F; aligned to this value. We need to re-align the unsafe stack if the</p>
+<p>&nbsp; &#x2F;&#x2F;&#x2F; alignment of any object on the stack exceeds this value.</p>
+<p>&nbsp; &#x2F;&#x2F;&#x2F;</p>
+<p>&nbsp; &#x2F;&#x2F;&#x2F; 16 seems like a reasonable upper bound on the alignment of objects that we</p>
+<p>&nbsp; &#x2F;&#x2F;&#x2F; might expect to appear on the stack on most common targets.</p>
+<p>&nbsp; static constexpr uint64_t StackAlignment &#x3D; 16;</p>
+<p>Unsafe stack 布局算法Stack coloring 优化</p>
+<p><a href="D:/Desktop/source_code/llvm/llvm-project/llvm/lib/CodeGen/SafeStackLayout.cpp">llvm-project&#x2F;llvm&#x2F;lib&#x2F;CodeGen&#x2F;SafeStackLayout.cpp</a></p>
+<p><strong>实现机制：</strong><br>```c<br>1. SafeStack 将栈分为两部分：<br>Safe stack：包含返回地址、saved RBP、安全变量（LLVM 后端管理，正常栈）<br>Unsafe stack：包含不安全变量（显式分配，通过 TLS 指针访问）</p>
+<ol>
+<li>Unsafe stack 指针存储在 TLS（Thread Local Storage）<br>thread void *safestackunsafestack_ptr &#x3D; nullptr</li>
+</ol>
+<p>3. 编译器分析哪些变量是unsafe（需要放入 unsafe stack）：<br>地址被取的局部变量（alloca whose address is taken）<br>数组（arrays）<br>动态大小的 alloca</p>
+<p>4. 函数 prologue 中设置 unsafe stack：<br>void function() {<br>void *unsafesp &#x3D; _safestackunsafestackptr;<br>unsafesp -&#x3D; sizeof(localvars); &#x2F;&#x2F; 分配空间<br>_safestackunsafestackptr &#x3D; unsafesp;</p>
+<p>&#x2F;&#x2F;返回地址和 saved RBP 仍在正常栈（safe stack）</p>
+<p>&#x2F;&#x2F;局部数组等存放在 unsafe stack</p>
+<p>char buf[256]; &#x2F;&#x2F; 存放在 unsafe_sp 指向的位置</p>
+<p>…</p>
+<p>}</p>
+<ol>
+<li>Unsafe stack 分配时包含 guard page（Mprotect PROTNONE）<br>void *unsafestackalloc(sizet size, sizet guard) {<br>void *addr &#x3D; Mmap(nullptr, size + guard, PROTREAD | PROTWRITE, …);<br>Mprotect(addr, guard, PROTNONE); &#x2F;&#x2F; Guard page<br>return (char *)addr + guard;<br>}</li>
+</ol>
+<p>实现特点：<br>分离关键数据：返回地址不会被栈溢出破坏<br>ASLR：Unsafe stack 位置随机化<br>Guard page：Unsafe stack 底部有保护页</p>
+<p>潜在绕过点：</p>
+<ol>
+<li>Unsafe stack 指针泄露：</li>
+</ol>
+<p>__safestack_unsafe_stack_ptr 存储在 TLS 中，如果泄露可以直接访问 unsafe stack</p>
+<p>源码注释提到：libc can leak the stack pointer in several ways (e.g. in longjmp, signal handling)</p>
+<p>1)Safe stack 仍然可以溢出：</p>
+<p>如果 safe stack 上有局部变量（编译器认为安全的），仍然可能溢出</p>
+<p>但无法直接覆盖返回地址（返回地址在 safe stack，但溢出目标也在 safe stack）</p>
+<p>间接攻击：</p>
+<p>2)间接攻击：</p>
+<p>如果能修改 unsafe stack 上的函数指针或虚表指针，仍然可以劫持控制流</p>
+<p>SafeStack 不保护数据完整性，只保护控制流数据</p>
+<p>3）Signal handler 攻击：</p>
+<p>信号处理器可能在不同的栈上运行，栈切换逻辑可能存在漏洞</p>
+<p>性能开销导致禁用：</p>
+<p>4）性能开销导致禁用：</p>
+<p>SafeStack 有性能开销（每次访问 unsafe 变量需要额外间接寻址）</p>
+<p>开发者可能因性能原因禁用</p>
+<h3 id="5-LLVM-CFI的实现"><a href="#5-LLVM-CFI的实现" class="headerlink" title="5.LLVM CFI的实现"></a>5.LLVM CFI的实现</h3><p>编译器实现的细粒度前向边CFI技术，通过在编译时插入类型检查，在运行时验证间接调用的目标是否属于正确的类型集合</p>
+<p>编译时：为每个地址可能被取用的函数生成类型元数据</p>
+<p>链接时：将类型测试（type tests）降低为高效的位图检查</p>
+<p>运行时：在每个间接调用前插入位图检查代码</p>
+<p>作用域：<br>虚函数调用，函数指针，间接跳转</p>
+<h4 id="编译器-Pass-实现（LLVM）"><a href="#编译器-Pass-实现（LLVM）" class="headerlink" title="编译器 Pass 实现（LLVM）"></a><strong>编译器 Pass 实现（LLVM）</strong></h4><p>1、降低 type test 到位图检查lowerTypeTestCall()</p>
+<p>Value *LowerTypeTestsModule::lowerTypeTestCall(Metadata *TypeId, CallInst *CI,</p>
+<p>&nbsp;                                              const TypeIdLowering &amp;TIL) {</p>
+<p>&nbsp; &#x2F;&#x2F; Delay lowering if the resolution is currently unknown.</p>
+<p>&nbsp; if (TIL.TheKind &#x3D;&#x3D; TypeTestResolution::Unknown)</p>
+<p>&nbsp;   return nullptr;</p>
+<p>&nbsp; if (TIL.TheKind &#x3D;&#x3D; TypeTestResolution::Unsat)</p>
+<p>&nbsp;   return ConstantInt::getFalse(M.getContext());</p>
+<p>&nbsp; Value *Ptr &#x3D; CI-&gt;getArgOperand(0);</p>
+<p>&nbsp; const DataLayout &amp;DL &#x3D; M.getDataLayout();</p>
+<p>&nbsp; if (isKnownTypeIdMember(TypeId, DL, Ptr, 0))</p>
+<p>&nbsp;   return ConstantInt::getTrue(M.getContext());</p>
+<p>&nbsp; BasicBlock *InitialBB &#x3D; CI-&gt;getParent();</p>
+<p>&nbsp; IRBuilder&lt;&gt; B(CI);</p>
+<p>&nbsp; Value *PtrAsInt &#x3D; B.CreatePtrToInt(Ptr, IntPtrTy);</p>
+<p>&nbsp; Constant *OffsetedGlobalAsInt &#x3D;</p>
+<p>&nbsp;     ConstantExpr::getPtrToInt(TIL.OffsetedGlobal, IntPtrTy);</p>
+<p>&nbsp; if (TIL.TheKind &#x3D;&#x3D; TypeTestResolution::Single)</p>
+<p>&nbsp;   return B.CreateICmpEQ(PtrAsInt, OffsetedGlobalAsInt);</p>
+<p>&nbsp; Value *PtrOffset &#x3D; B.CreateSub(PtrAsInt, OffsetedGlobalAsInt);</p>
+<p>&nbsp; &#x2F;&#x2F; We need to check that the offset both falls within our range and is</p>
+<p>&nbsp; &#x2F;&#x2F; suitably aligned. We can check both properties at the same time by</p>
+<p>&nbsp; &#x2F;&#x2F; performing a right rotate by log2(alignment) followed by an integer</p>
+<p>&nbsp; &#x2F;&#x2F; comparison against the bitset size. The rotate will move the lower</p>
+<p>&nbsp; &#x2F;&#x2F; order bits that need to be zero into the higher order bits of the</p>
+<p>&nbsp; &#x2F;&#x2F; result, causing the comparison to fail if they are nonzero. The rotate</p>
+<p>&nbsp; &#x2F;&#x2F; also conveniently gives us a bit offset to use during the load from</p>
+<p>&nbsp; &#x2F;&#x2F; the bitset.</p>
+<p>&nbsp; Value *OffsetSHR &#x3D;</p>
+<p>&nbsp;     B.CreateLShr(PtrOffset, ConstantExpr::getZExt(TIL.AlignLog2, IntPtrTy));</p>
+<p>&nbsp; Value *OffsetSHL &#x3D; B.CreateShl(</p>
+<p>&nbsp;     PtrOffset, ConstantExpr::getZExt(</p>
+<p>&nbsp;                    ConstantExpr::getSub(</p>
+<p>&nbsp;                        ConstantInt::get(Int8Ty, DL.getPointerSizeInBits(0)),</p>
+<p>&nbsp;                        TIL.AlignLog2),</p>
+<p>&nbsp;                    IntPtrTy));</p>
+<p>&nbsp; Value *BitOffset &#x3D; B.CreateOr(OffsetSHR, OffsetSHL);</p>
+<p>&nbsp; Value *OffsetInRange &#x3D; B.CreateICmpULE(BitOffset, TIL.SizeM1);</p>
+<p>&nbsp; &#x2F;&#x2F; If the bit set is all ones, testing against it is unnecessary.</p>
+<p>&nbsp; if (TIL.TheKind &#x3D;&#x3D; TypeTestResolution::AllOnes)</p>
+<p>&nbsp;   return OffsetInRange;</p>
+<p>&nbsp; &#x2F;&#x2F; See if the intrinsic is used in the following common pattern:</p>
+<p>&nbsp; &#x2F;&#x2F;   br(llvm.type.test(…), thenbb, elsebb)</p>
+<p>&nbsp; &#x2F;&#x2F; where nothing happens between the type test and the br.</p>
+<p>&nbsp; &#x2F;&#x2F; If so, create slightly simpler IR.</p>
+<p>&nbsp; if (CI-&gt;hasOneUse())</p>
+<p>&nbsp;   if (auto *Br &#x3D; dyn_cast&lt;BranchInst&gt;(*CI-&gt;user_begin()))</p>
+<p>&nbsp;     if (CI-&gt;getNextNode() &#x3D;&#x3D; Br) {</p>
+<p>&nbsp;       BasicBlock *Then &#x3D; InitialBB-&gt;splitBasicBlock(CI-&gt;getIterator());</p>
+<p>&nbsp;       BasicBlock *Else &#x3D; Br-&gt;getSuccessor(1);</p>
+<p>&nbsp;       BranchInst *NewBr &#x3D; BranchInst::Create(Then, Else, OffsetInRange);</p>
+<p>&nbsp;       NewBr-&gt;setMetadata(LLVMContext::MD_prof,</p>
+<p>&nbsp;                          Br-&gt;getMetadata(LLVMContext::MD_prof));</p>
+<p>&nbsp;       ReplaceInstWithInst(InitialBB-&gt;getTerminator(), NewBr);</p>
+<p>&nbsp;       &#x2F;&#x2F; Update phis in Else resulting from InitialBB being split</p>
+<p>&nbsp;       for (auto &amp;Phi : Else-&gt;phis())</p>
+<p>&nbsp;         Phi.addIncoming(Phi.getIncomingValueForBlock(Then), InitialBB);</p>
+<p>&nbsp;       IRBuilder&lt;&gt; ThenB(CI);</p>
+<p>&nbsp;       return createBitSetTest(ThenB, TIL, BitOffset);</p>
+<p>&nbsp;     }</p>
+<p>&nbsp; IRBuilder&lt;&gt; ThenB(SplitBlockAndInsertIfThen(OffsetInRange, CI, false));</p>
+<p>&nbsp; &#x2F;&#x2F; Now that we know that the offset is in range and aligned, load the</p>
+<p>&nbsp; &#x2F;&#x2F; appropriate bit from the bitset.</p>
+<p>&nbsp; Value *Bit &#x3D; createBitSetTest(ThenB, TIL, BitOffset);</p>
+<p>2、生成位图检查代码createBitSetTest()</p>
+<p>&#x2F;&#x2F;&#x2F; Build a test that bit BitOffset is set in the type identifier that was</p>
+<p>&#x2F;&#x2F;&#x2F; lowered to TIL, which must be either an Inline or a ByteArray.</p>
+<p>Value *LowerTypeTestsModule::createBitSetTest(IRBuilder&lt;&gt; &amp;B,</p>
+<p>&nbsp;                                             const TypeIdLowering &amp;TIL,</p>
+<p>&nbsp;                                             Value *BitOffset) {</p>
+<p>&nbsp; if (TIL.TheKind &#x3D;&#x3D; TypeTestResolution::Inline) {</p>
+<p>&nbsp;   &#x2F;&#x2F; If the bit set is sufficiently small, we can avoid a load by bit testing</p>
+<p>&nbsp;   &#x2F;&#x2F; a constant.</p>
+<p>&nbsp;   return createMaskedBitTest(B, TIL.InlineBits, BitOffset);</p>
+<p>&nbsp; } else {</p>
+<p>&nbsp;   Constant *ByteArray &#x3D; TIL.TheByteArray;</p>
+<p>&nbsp;   if (AvoidReuse &amp;&amp; !ImportSummary) {</p>
+<p>&nbsp;     &#x2F;&#x2F; Each use of the byte array uses a different alias. This makes the</p>
+<p>&nbsp;     &#x2F;&#x2F; backend less likely to reuse previously computed byte array addresses,</p>
+<p>&nbsp;     &#x2F;&#x2F; improving the security of the CFI mechanism based on this pass.</p>
+<p>&nbsp;     &#x2F;&#x2F; This won’t work when importing because TheByteArray is external.</p>
+<p>&nbsp;     ByteArray &#x3D; GlobalAlias::create(Int8Ty, 0, GlobalValue::PrivateLinkage,</p>
+<p>&nbsp;                                     “bits_use”, ByteArray, &amp;M);</p>
+<p>&nbsp;   }</p>
+<p>&nbsp;   Value *ByteAddr &#x3D; B.CreateGEP(Int8Ty, ByteArray, BitOffset);</p>
+<p>&nbsp;   Value *Byte &#x3D; B.CreateLoad(Int8Ty, ByteAddr);</p>
+<p>&nbsp;   Value *ByteAndMask &#x3D;</p>
+<p>&nbsp;       B.CreateAnd(Byte, ConstantExpr::getPtrToInt(TIL.BitMask, Int8Ty));</p>
+<p>&nbsp;   return B.CreateICmpNE(ByteAndMask, ConstantInt::get(Int8Ty, 0));</p>
+<p>&nbsp; }</p>
+<p>}</p>
+<p>3、跨动态库 CFI 支持Cross-DSO CFI</p>
+<p>&#x2F;&#x2F;&#x3D;&#x3D;&#x3D;– CrossDSOCFI.cpp - Externalize this module’s CFI checks ————&#x3D;&#x3D;&#x3D;&#x2F;&#x2F;</p>
+<p>&#x2F;&#x2F;</p>
+<p>&#x2F;&#x2F; Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.</p>
+<p>&#x2F;&#x2F; See <a target="_blank" rel="noopener" href="https://llvm.org/LICENSE.txt">https://llvm.org/LICENSE.txt</a> for license information.</p>
+<p>&#x2F;&#x2F; SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception</p>
+<p>&#x2F;&#x2F;</p>
+<p>&#x2F;&#x2F;&#x3D;&#x3D;&#x3D;———————————————————————-&#x3D;&#x3D;&#x3D;&#x2F;&#x2F;</p>
+<p>&#x2F;&#x2F;</p>
+<p>&#x2F;&#x2F; This pass exports all llvm.bitset’s found in the module in the form of a</p>
+<p>&#x2F;&#x2F; __cfi_check function, which can be used to verify cross-DSO call targets.</p>
+<p>&#x2F;&#x2F;</p>
+<p>&#x2F;&#x2F;&#x3D;&#x3D;&#x3D;———————————————————————-&#x3D;&#x3D;&#x3D;&#x2F;&#x2F;</p>
+<p>#include “llvm&#x2F;Transforms&#x2F;IPO&#x2F;CrossDSOCFI.h”</p>
+<p>#include “llvm&#x2F;ADT&#x2F;SetVector.h”</p>
+<p>#include “llvm&#x2F;ADT&#x2F;Statistic.h”</p>
+<p>#include “llvm&#x2F;ADT&#x2F;Triple.h”</p>
+<p>#include “llvm&#x2F;IR&#x2F;Constant.h”</p>
+<p>#include “llvm&#x2F;IR&#x2F;Constants.h”</p>
+<p>#include “llvm&#x2F;IR&#x2F;Function.h”</p>
+<p>#include “llvm&#x2F;IR&#x2F;GlobalObject.h”</p>
+<p>#include “llvm&#x2F;IR&#x2F;GlobalVariable.h”</p>
+<p>#include “llvm&#x2F;IR&#x2F;IRBuilder.h”</p>
+<p>#include “llvm&#x2F;IR&#x2F;Instructions.h”</p>
+<p>#include “llvm&#x2F;IR&#x2F;Intrinsics.h”</p>
+<p>#include “llvm&#x2F;IR&#x2F;MDBuilder.h”</p>
+<p>#include “llvm&#x2F;IR&#x2F;Module.h”</p>
+<p>#include “llvm&#x2F;IR&#x2F;Operator.h”</p>
+<p>#include “llvm&#x2F;InitializePasses.h”</p>
+<p>#include “llvm&#x2F;Pass.h”</p>
+<p>#include “llvm&#x2F;Support&#x2F;Debug.h”</p>
+<p>#include “llvm&#x2F;Support&#x2F;raw_ostream.h”</p>
+<p>#include “llvm&#x2F;Transforms&#x2F;IPO.h”</p>
+<p>using namespace llvm;</p>
+<p>#define DEBUG_TYPE “cross-dso-cfi”</p>
+<p>STATISTIC(NumTypeIds, “Number of unique type identifiers”);</p>
+<p>namespace {</p>
+<p>struct CrossDSOCFI : public ModulePass {</p>
+<p>&nbsp; static char ID;</p>
+<p>&nbsp; CrossDSOCFI() : ModulePass(ID) {</p>
+<p>&nbsp;   initializeCrossDSOCFIPass(*PassRegistry::getPassRegistry());</p>
+<p>&nbsp; }</p>
+<p>&nbsp; MDNode *VeryLikelyWeights;</p>
+<p>&nbsp; ConstantInt *extractNumericTypeId(MDNode *MD);</p>
+<p>&nbsp; void buildCFICheck(Module &amp;M);</p>
+<p>&nbsp; bool runOnModule(Module &amp;M) override;</p>
+<p>};</p>
+<p>} &#x2F;&#x2F; anonymous namespace</p>
+<p>INITIALIZE_PASS_BEGIN(CrossDSOCFI, “cross-dso-cfi”, “Cross-DSO CFI”, false,</p>
+<p>&nbsp;                     false)</p>
+<p>INITIALIZE_PASS_END(CrossDSOCFI, “cross-dso-cfi”, “Cross-DSO CFI”, false, false)</p>
+<p>char CrossDSOCFI::ID &#x3D; 0;</p>
+<p>ModulePass *llvm::createCrossDSOCFIPass() { return new CrossDSOCFI; }</p>
+<p>&#x2F;&#x2F;&#x2F; Extracts a numeric type identifier from an MDNode containing type metadata.</p>
+<p>ConstantInt *CrossDSOCFI::extractNumericTypeId(MDNode *MD) {</p>
+<p>&nbsp; &#x2F;&#x2F; This check excludes vtables for classes inside anonymous namespaces.</p>
+<p>&nbsp; auto TM &#x3D; dyn_cast&lt;ValueAsMetadata&gt;(MD-&gt;getOperand(1));</p>
+<p>&nbsp; if (!TM)</p>
+<p>&nbsp;   return nullptr;</p>
+<p>&nbsp; auto C &#x3D; dyn_cast_or_null&lt;ConstantInt&gt;(TM-&gt;getValue());</p>
+<p>&nbsp; if (!C) return nullptr;</p>
+<p>&nbsp; &#x2F;&#x2F; We are looking for i64 constants.</p>
+<p>&nbsp; if (C-&gt;getBitWidth() !&#x3D; 64) return nullptr;</p>
+<p>&nbsp; return C;</p>
+<p>}</p>
+<p>&#x2F;&#x2F;&#x2F; buildCFICheck - emits __cfi_check for the current module.</p>
+<p>void CrossDSOCFI::buildCFICheck(Module &amp;M) {</p>
+<p>&nbsp; &#x2F;&#x2F; FIXME: verify that __cfi_check ends up near the end of the code section,</p>
+<p>&nbsp; &#x2F;&#x2F; but before the jump slots created in LowerTypeTests.</p>
+<p>&nbsp; SetVector&lt;uint64_t&gt; TypeIds;</p>
+<p>&nbsp; SmallVector&lt;MDNode *, 2&gt; Types;</p>
+<p>&nbsp; for (GlobalObject &amp;GO : M.global_objects()) {</p>
+<p>&nbsp;   Types.clear();</p>
+<p>&nbsp;   GO.getMetadata(LLVMContext::MD_type, Types);</p>
+<p>&nbsp;   for (MDNode *Type : Types)</p>
+<p>&nbsp;     if (ConstantInt *TypeId &#x3D; extractNumericTypeId(Type))</p>
+<p>&nbsp;       TypeIds.insert(TypeId-&gt;getZExtValue());</p>
+<p>&nbsp; }</p>
+<p>&nbsp; NamedMDNode *CfiFunctionsMD &#x3D; M.getNamedMetadata(“cfi.functions”);</p>
+<p>&nbsp; if (CfiFunctionsMD) {</p>
+<p>&nbsp;   for (auto Func : CfiFunctionsMD-&gt;operands()) {</p>
+<p>&nbsp;     assert(Func-&gt;getNumOperands() &gt;&#x3D; 2);</p>
+<p>&nbsp;     for (unsigned I &#x3D; 2; I &lt; Func-&gt;getNumOperands(); ++I)</p>
+<p>&nbsp;       if (ConstantInt *TypeId &#x3D;</p>
+<p>&nbsp;               extractNumericTypeId(cast&lt;MDNode&gt;(Func-&gt;getOperand(I).get())))</p>
+<p>&nbsp;         TypeIds.insert(TypeId-&gt;getZExtValue());</p>
+<p>&nbsp;   }</p>
+<p>&nbsp; }</p>
+<p>&nbsp; LLVMContext &amp;Ctx &#x3D; M.getContext();</p>
+<p>&nbsp; FunctionCallee C &#x3D; M.getOrInsertFunction(</p>
+<p>&nbsp;     “__cfi_check”, Type::getVoidTy(Ctx), Type::getInt64Ty(Ctx),</p>
+<p>&nbsp;     Type::getInt8PtrTy(Ctx), Type::getInt8PtrTy(Ctx));</p>
+<p>&nbsp; Function *F &#x3D; cast&lt;Function&gt;(C.getCallee());</p>
+<p>&nbsp; &#x2F;&#x2F; Take over the existing function. The frontend emits a weak stub so that the</p>
+<p>&nbsp; &#x2F;&#x2F; linker knows about the symbol; this pass replaces the function body.</p>
+<p>&nbsp; F-&gt;deleteBody();</p>
+<p>&nbsp; F-&gt;setAlignment(Align(4096));</p>
+<p>&nbsp; Triple T(M.getTargetTriple());</p>
+<p>&nbsp; if (T.isARM() || T.isThumb())</p>
+<p>&nbsp;   F-&gt;addFnAttr(“target-features”, “+thumb-mode”);</p>
+<p>&nbsp; auto args &#x3D; F-&gt;arg_begin();</p>
+<p>&nbsp; Value &amp;CallSiteTypeId &#x3D; *(args++);</p>
+<p>&nbsp; CallSiteTypeId.setName(“CallSiteTypeId”);</p>
+<p>&nbsp; Value &amp;Addr &#x3D; *(args++);</p>
+<p>&nbsp; Addr.setName(“Addr”);</p>
+<p>&nbsp; Value &amp;CFICheckFailData &#x3D; *(args++);</p>
+<p>&nbsp; CFICheckFailData.setName(“CFICheckFailData”);</p>
+<p>&nbsp; assert(args &#x3D;&#x3D; F-&gt;arg_end());</p>
+<p>&nbsp; BasicBlock *BB &#x3D; BasicBlock::Create(Ctx, “entry”, F);</p>
+<p>&nbsp; BasicBlock *ExitBB &#x3D; BasicBlock::Create(Ctx, “exit”, F);</p>
+<p>&nbsp; BasicBlock *TrapBB &#x3D; BasicBlock::Create(Ctx, “fail”, F);</p>
+<p>&nbsp; IRBuilder&lt;&gt; IRBFail(TrapBB);</p>
+<p>&nbsp; FunctionCallee CFICheckFailFn &#x3D;</p>
+<p>&nbsp;     M.getOrInsertFunction(“__cfi_check_fail”, Type::getVoidTy(Ctx),</p>
+<p>&nbsp;                           Type::getInt8PtrTy(Ctx), Type::getInt8PtrTy(Ctx));</p>
+<p>&nbsp; IRBFail.CreateCall(CFICheckFailFn, {&amp;CFICheckFailData, &amp;Addr});</p>
+<p>&nbsp; IRBFail.CreateBr(ExitBB);</p>
+<p>&nbsp; IRBuilder&lt;&gt; IRBExit(ExitBB);</p>
+<p>&nbsp; IRBExit.CreateRetVoid();</p>
+<p>&nbsp; IRBuilder&lt;&gt; IRB(BB);</p>
+<p>&nbsp; SwitchInst *SI &#x3D; IRB.CreateSwitch(&amp;CallSiteTypeId, TrapBB, TypeIds.size());</p>
+<p>&nbsp; for (uint64_t TypeId : TypeIds) {</p>
+<p>&nbsp;   ConstantInt *CaseTypeId &#x3D; ConstantInt::get(Type::getInt64Ty(Ctx), TypeId);</p>
+<p>&nbsp;   BasicBlock *TestBB &#x3D; BasicBlock::Create(Ctx, “test”, F);</p>
+<p>&nbsp;   IRBuilder&lt;&gt; IRBTest(TestBB);</p>
+<p>&nbsp;   Function *BitsetTestFn &#x3D; Intrinsic::getDeclaration(&amp;M, Intrinsic::type_test);</p>
+<p>&nbsp;   Value *Test &#x3D; IRBTest.CreateCall(</p>
+<p>&nbsp;       BitsetTestFn, {&amp;Addr, MetadataAsValue::get(</p>
+<p>&nbsp;                                 Ctx, ConstantAsMetadata::get(CaseTypeId))});</p>
+<p>&nbsp;   BranchInst *BI &#x3D; IRBTest.CreateCondBr(Test, ExitBB, TrapBB);</p>
+<p>&nbsp;   BI-&gt;setMetadata(LLVMContext::MD_prof, VeryLikelyWeights);</p>
+<p>&nbsp;   SI-&gt;addCase(CaseTypeId, TestBB);</p>
+<p>&nbsp;   ++NumTypeIds;</p>
+<p>&nbsp; }</p>
+<p>}</p>
+<p>bool CrossDSOCFI::runOnModule(Module &amp;M) {</p>
+<p>&nbsp; VeryLikelyWeights &#x3D;</p>
+<p>&nbsp;   MDBuilder(M.getContext()).createBranchWeights((1U &lt;&lt; 20) - 1, 1);</p>
+<p>&nbsp; if (M.getModuleFlag(“Cross-DSO CFI”) &#x3D;&#x3D; nullptr)</p>
+<p>&nbsp;   return false;</p>
+<p>&nbsp; buildCFICheck(M);</p>
+<p>&nbsp; return true;</p>
+<p>}</p>
+<p>PreservedAnalyses CrossDSOCFIPass::run(Module &amp;M, ModuleAnalysisManager &amp;AM) {</p>
+<p>&nbsp; CrossDSOCFI Impl;</p>
+<p>&nbsp; bool Changed &#x3D; Impl.runOnModule(M);</p>
+<p>&nbsp; if (!Changed)</p>
+<p>&nbsp;   return PreservedAnalyses::all();</p>
+<p>&nbsp; return PreservedAnalyses::none();</p>
+<p>}</p>
+<h4 id="2）运行时实现（compiler-rt）"><a href="#2）运行时实现（compiler-rt）" class="headerlink" title="2）运行时实现（compiler-rt）"></a><strong>2）运行时实现（compiler-rt）</strong></h4><p><strong>Shadow内存管理</strong></p>
+<p><strong>kShadowGranularity &#x3D; 12 (4KB 对齐)</strong></p>
+<p>namespace __cfi {</p>
+<p>#define kCfiShadowLimitsStorageSize 4096 &#x2F;&#x2F; 1 page</p>
+<p>&#x2F;&#x2F; Lets hope that the data segment is mapped with 4K pages.</p>
+<p>&#x2F;&#x2F; The pointer to the cfi shadow region is stored at the start of this page.</p>
+<p>&#x2F;&#x2F; The rest of the page is unused and re-mapped read-only.</p>
+<p>static union {</p>
+<p>&nbsp; char space[kCfiShadowLimitsStorageSize];</p>
+<p>&nbsp; struct {</p>
+<p>&nbsp;   uptr start;</p>
+<p>&nbsp;   uptr size;</p>
+<p>&nbsp; } limits;</p>
+<p>} cfi_shadow_limits_storage</p>
+<p>&nbsp;   _<em>attribute</em>_((aligned(kCfiShadowLimitsStorageSize)));</p>
+<p>static constexpr uptr kShadowGranularity &#x3D; 12;</p>
+<p>static constexpr uptr kShadowAlign &#x3D; 1UL &lt;&lt; kShadowGranularity; &#x2F;&#x2F; 4096</p>
+<p>static constexpr uint16_t kInvalidShadow &#x3D; 0;</p>
+<p>static constexpr uint16_t kUncheckedShadow &#x3D; 0xFFFFU;</p>
+<p>&#x2F;&#x2F; Get the start address of the CFI shadow region.</p>
+<p>uptr GetShadow() {</p>
+<p>&nbsp; return cfi_shadow_limits_storage.limits.start;</p>
+<p>}</p>
+<p>uptr GetShadowSize() {</p>
+<p>&nbsp; return cfi_shadow_limits_storage.limits.size;</p>
+<p>}</p>
+<p>&#x2F;&#x2F; This will only work while the shadow is not allocated.</p>
+<p>void SetShadowSize(uptr size) {</p>
+<p>&nbsp; cfi_shadow_limits_storage.limits.size &#x3D; size;</p>
+<p>}</p>
+<p>uptr MemToShadowOffset(uptr x) {</p>
+<p>&nbsp; return (x &gt;&gt; kShadowGranularity) &lt;&lt; 1;</p>
+<p>}</p>
+<p>uint16_t *MemToShadow(uptr x, uptr shadow_base) {</p>
+<p>&nbsp; return (uint16_t *)(shadow_base + MemToShadowOffset(x));</p>
+<p>}</p>
+<p><strong>CFI 检查失败处理</strong></p>
+<p>ALWAYS_INLINE void CfiSlowPathCommon(u64 CallSiteTypeId, void *Ptr,</p>
+<p>&nbsp;                                    void *DiagData) {</p>
+<p>&nbsp; uptr Addr &#x3D; (uptr)Ptr;</p>
+<p>&nbsp; VReport(3, “__cfi_slowpath: %llx, %p\n”, CallSiteTypeId, Ptr);</p>
+<p>&nbsp; ShadowValue sv &#x3D; ShadowValue::load(Addr);</p>
+<p>&nbsp; if (sv.is_invalid()) {</p>
+<p>&nbsp;   VReport(1, “CFI: invalid memory region for a check target: %p\n”, Ptr);</p>
+<p>#ifdef CFI_ENABLE_DIAG</p>
+<p>&nbsp;   if (DiagData) {</p>
+<p>&nbsp;     __ubsan_handle_cfi_check_fail(</p>
+<p>&nbsp;         reinterpret_cast&lt;__ubsan::CFICheckFailData *&gt;(DiagData), Addr, false);</p>
+<p>&nbsp;     return;</p>
+<p>&nbsp;   }</p>
+<p>#endif</p>
+<p>&nbsp;   Trap();</p>
+<p>&nbsp; }</p>
+<p>&nbsp; if (sv.is_unchecked()) {</p>
+<p>&nbsp;   VReport(2, “CFI: unchecked call (shadow&#x3D;FFFF): %p\n”, Ptr);</p>
+<p>&nbsp;   return;</p>
+<p>&nbsp; }</p>
+<p>&nbsp; CFICheckFn cfi_check &#x3D; sv.get_cfi_check();</p>
+<p>&nbsp; VReport(2, “__cfi_check at %p\n”, (void *)cfi_check);</p>
+<p>&nbsp; cfi_check(CallSiteTypeId, Ptr, DiagData);</p>
+<p>}</p>
+<p><strong>实现机制：</strong></p>
+<p>1. LLVM 为每个函数生成类型元数据（type metadata）<br>!llvm.type.test &#x3D; !{!0}<br>!0 &#x3D; !{i64 0, !_ZTSFviE} # 函数签名类型</p>
+<p>2. LLVM 构建全局位图（bitset），记录所有有效的函数指针<br>GlobalVariable BitSet &#x3D; new GlobalVariable(<br>M, ArrayType::get(Int8Ty, BitSetSize), &#x2F;isConstant&#x3D;*&#x2F;true);</p>
+<p>3. 在每个间接调用前插入检查：<br>if (!_llvmtypetest(FuncPtr, TypeId)) {<br>_cfi_slowpath(TypeId, FuncPtr); &#x2F;&#x2F; 检查失败<br>}<br>(*FuncPtr)(args); &#x2F;&#x2F; 实际调用</p>
+<p>4. Cross-DSO CFI 使用 shadow 内存：<br>每 4KB 内存映射到 2 字节 shadow，存储 _cficheck 函数指针<br>uint16t shadow &#x3D; MemToShadow(FuncPtr);<br>if (shadow !&#x3D; kUncheckedShadow) {<br>CFICheckFn cficheck &#x3D; GetCfiCheck(*shadow);<br>cfi_check(TypeId, FuncPtr, DiagData);<br>}  </p>
+<p>特点：<br> 细粒度：基于函数签名类型进行检查，不同签名的函数不能互相调用<br> 位图优化：使用位图（bitset）存储有效目标，内存开销小<br> 跨 DSO 支持：使用 shadow 内存机制支持动态库</p>
+<p>潜在绕过点：</p>
+<p>1. 类型混淆攻击：<br>如果两个函数签名相同但语义不同（如 void foo(int) 和 void bar(int)），CFI 无法区分<br>攻击者可以跳转到任何签名匹配的函数</p>
+<p>1）位图预测攻击：</p>
+<p>位图存储在只读内存，但位置可能通过信息泄露获取</p>
+<p>攻击者可以预先计算哪些地址通过检查</p>
+<p>2）Cross-DSO 的 Shadow 内存攻击：</p>
+<p>Shadow 内存本身可能成为攻击目标（需要内存破坏漏洞）</p>
+<p>kUncheckedShadow &#x3D; 0xFFFF 表示不检查，攻击者可尝试设置</p>
+<p>3）JIT 代码绕过：</p>
+<p>动态生成的代码（JIT）可能没有正确的类型元数据</p>
+<h2 id="三、综合对比分析"><a href="#三、综合对比分析" class="headerlink" title="三、综合对比分析"></a><strong>三、综合对比分析</strong></h2><table>
+<thead>
+<tr>
+<th>技术</th>
+<th>源码位置</th>
+<th>关键发现</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1. Stack Canary</td>
+<td>glibc libc-start.c + GCC cfgexpand.c</td>
+<td>Canary 最低字节固定为 0x00（减少熵）</td>
+</tr>
+<tr>
+<td>2. Intel IBT&#x2F;CET</td>
+<td>GCC i386.c + Linux cet.c + alternative.c</td>
+<td>Kernel 的 apply_seal_endbr() 可移除不应间接调用的 ENDBR</td>
+</tr>
+<tr>
+<td>3. LLVM CFI</td>
+<td>LLVM LowerTypeTests.cpp + compiler-rt cfi.cpp</td>
+<td>Shadow 内存使用 0xFFFF 魔数表示”不检查”</td>
+</tr>
+<tr>
+<td>4. GCC VTV</td>
+<td>GCC vtable-verify.c + libvtv vtv_rts.cc</td>
+<td>初始化阶段 vtable map 可写（时间窗口攻击）</td>
+</tr>
+<tr>
+<td>5. SafeStack</td>
+<td>LLVM SafeStack.cpp + compiler-rt safestack.cpp</td>
+<td>TLS 指针公开可见，存在泄露风险</td>
+</tr>
+</tbody></table>
+<p>关键发现：从源码发现的 5 个严重安全问题</p>
+<p>1. Stack Canary 熵降低</p>
+<p>&#x2F;&#x2F; glibc-2.35&#x2F;sysdeps&#x2F;generic&#x2F;dl-osinfo.h:40</p>
+<p>ret.num &amp;&#x3D; ~(uintptr_t) 0xff; &#x2F;&#x2F; 最低字节固定为 0x00</p>
+<p>→ 64位系统从 64bit 熵降到 56bit</p>
+<p>2. Intel IBT Gadget 可用性</p>
+<p>用户态程序中所有 endbr64 都可用（没有 sealing 机制）</p>
+<p>可以构造 JOP（Jump-Oriented Programming）攻击</p>
+<p>3. LLVM CFI Shadow 内存魔数</p>
+<p>&#x2F;&#x2F; compiler-rt&#x2F;lib&#x2F;cfi&#x2F;cfi.cpp:70</p>
+<p>static constexpr uint16_t kUncheckedShadow &#x3D; 0xFFFF; &#x2F;&#x2F; 直接放行</p>
+<p>→ 内存破坏可设置 shadow 为 0xFFFF 绕过检查</p>
+<p>4. GCC VTV 初始化窗口</p>
+<p>Constructor 执行期间 vtable map 可写</p>
+<p>可注入恶意虚表指针</p>
+<p>5. SafeStack TLS 指针暴露</p>
+<p>&#x2F;&#x2F; compiler-rt&#x2F;lib&#x2F;safestack&#x2F;safestack.cpp:37</p>
+<p>__thread void *__safestack_unsafe_stack_ptr &#x3D; nullptr; &#x2F;&#x2F; 公开符号</p>
+<p>→ 源码注释承认 libc 可能泄露栈指针</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://lllle1yh.github.io">lllle1yh</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://lllle1yh.github.io/2026/01/02/%E5%85%B3%E4%BA%8ECFI%E6%9C%BA%E5%88%B6%E7%9A%84%E5%88%86%E6%9E%90%E6%80%BB%E7%BB%93/">https://lllle1yh.github.io/2026/01/02/%E5%85%B3%E4%BA%8ECFI%E6%9C%BA%E5%88%B6%E7%9A%84%E5%88%86%E6%9E%90%E6%80%BB%E7%BB%93/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://lllle1yh.github.io" target="_blank">lllle1yh_s_bl0g</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/CFI/">CFI</a><a class="post-meta__tags" href="/tags/%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%88%86%E6%9E%90/">二进制分析</a><a class="post-meta__tags" href="/tags/%E5%AE%89%E5%85%A8/">安全</a></div><div class="post-share"><div class="social-share" data-image="/img/posts/2026/1/%E5%85%B3%E4%BA%8ECFI%E6%9C%BA%E5%88%B6%E7%9A%84%E5%88%86%E6%9E%90%E6%80%BB%E7%BB%93/1.png" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2026/01/08/%E4%B8%BA%E4%BB%80%E4%B9%88Windows%E5%BD%B1%E5%AD%90%E6%A0%88%E8%A6%81%E9%BB%98%E8%AE%A4NOSET/" title="为什么Windows影子栈要默认NOSET?"><img class="cover" src="/img/posts/2026/8/4.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">为什么Windows影子栈要默认NOSET?</div></div><div class="info-2"><div class="info-item-1">被Windows影子栈心态搞崩的一个上午Why Shadow Stack?Windows内核模式硬件强制堆栈保护 简单来说就是防止控制流(CFI)劫持的一种方式。 见上一篇博客，对CFI做了一个较为基础的静态分析、源码分析以及基础的绕过测试。 下面说说必须要吐槽的事情Intel13代处理器支持影子栈，但是再虚拟环境中，过滤这个特性（目前没有测试出来qwq，但是又可以检测是否开启了这个功能，来个大佬能在虚拟环境中测试一下shadow stack） 所以我查看了我主机是否支持Shadow stack：  可以看到显示的是NOTSET 为了测试我把这个打开了：  这个时候还一起正常，忘记了修改配置没有重启的影响，然后晚上睡觉后我把电脑关机了。 第二天离谱的来了，开机以后，包括vscode、trae、vs2022等一些列编辑器全部失效，无法启动，给我整不会了哥们^^^^^^^ 开始以为是内存不够了，检查也没看到什么大进程，然后又把电脑除了必须的服务其他全部关闭，发现仍然无法启动，甚至这个时候微信等通信软件也开始失效。 这个时候，点子来了，钉钉（好软件）给我提示了（PS：钉钉在一开始还是可...</div></div></div></a><a class="pagination-related" href="/2025/12/30/The-final-of-2025/" title="The final of 2025"><img class="cover" src="/img/covers/the-final-of-2025.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">The final of 2025</div></div><div class="info-2"><div class="info-item-1">2025年，这一年过得充实而精彩。啥都不会的安全小白也算入门了，从旅行到日常的学习生活，每一个月的瞬间，在这里回顾。  一月一月多的时候，回了趟高中。熟悉的校园，回忆满满。（照片找不齐，写点意思意思）  二月二月初去了南昌，感受一下这座城市的魅力。  中旬返校了，新学期开始，又是忙碌的”苦逼”生活。不过，充实的生活才是最有意义的。（一样没有照片）  三月 入门入门学长tql，入门人生第一个靶场。Web，Web，我来啦！   四月进山四月初进山了，累啊  漏洞复现回来以后开始复现基础的漏洞，复现第一个CVE，越权重装系统  走走走四月中旬，去了洛邑古城。  第一次模拟真实网络存在的问题   五月自习自习五月初去图书馆的路上，阳光刚好打在上面，无敌了老铁  学学学继续各种配环境(煎熬的很，啥也不会)，复现基础 CVE。  端午节包的粽子   六月六月苦逼复习   七月终于考完了考完试，准备去爬山，gogogo  登顶上山上山！  飞厦门下山，先飞去厦门玩一下。   八月 煎熬休息几天后，准备回学校了。[流泪]（没照片意思意思） 省实验月末去省实验遛一遛   九月开学开学九月开学了，又...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2026/01/08/%E4%B8%BA%E4%BB%80%E4%B9%88Windows%E5%BD%B1%E5%AD%90%E6%A0%88%E8%A6%81%E9%BB%98%E8%AE%A4NOSET/" title="为什么Windows影子栈要默认NOSET?"><img class="cover" src="/img/posts/2026/8/4.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-01-08</div><div class="info-item-2">为什么Windows影子栈要默认NOSET?</div></div><div class="info-2"><div class="info-item-1">被Windows影子栈心态搞崩的一个上午Why Shadow Stack?Windows内核模式硬件强制堆栈保护 简单来说就是防止控制流(CFI)劫持的一种方式。 见上一篇博客，对CFI做了一个较为基础的静态分析、源码分析以及基础的绕过测试。 下面说说必须要吐槽的事情Intel13代处理器支持影子栈，但是再虚拟环境中，过滤这个特性（目前没有测试出来qwq，但是又可以检测是否开启了这个功能，来个大佬能在虚拟环境中测试一下shadow stack） 所以我查看了我主机是否支持Shadow stack：  可以看到显示的是NOTSET 为了测试我把这个打开了：  这个时候还一起正常，忘记了修改配置没有重启的影响，然后晚上睡觉后我把电脑关机了。 第二天离谱的来了，开机以后，包括vscode、trae、vs2022等一些列编辑器全部失效，无法启动，给我整不会了哥们^^^^^^^ 开始以为是内存不够了，检查也没看到什么大进程，然后又把电脑除了必须的服务其他全部关闭，发现仍然无法启动，甚至这个时候微信等通信软件也开始失效。 这个时候，点子来了，钉钉（好软件）给我提示了（PS：钉钉在一开始还是可...</div></div></div></a></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="giscus-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">lllle1yh</div><div class="author-info-description">记录美好生活 | 分享技术心得</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">4</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">7</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/lllle1yh"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/lllle1yh" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:3020972982@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎来到我的博客！正在建设中...</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%88%E6%9B%B4%E6%96%B0%E4%B8%80%E4%B8%8B%E9%83%A8%E5%88%86%E6%8A%80%E6%9C%AF%E7%9A%84%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB"><span class="toc-number">1.</span> <span class="toc-text">先更新一下部分技术的源码解读</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#GCC-VTV%EF%BC%88%E8%99%9A%E8%A1%A8%E9%AA%8C%E8%AF%81%EF%BC%89"><span class="toc-number">1.0.1.</span> <span class="toc-text">GCC VTV（虚表验证）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1%EF%BC%89%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.0.1.1.</span> <span class="toc-text">1）简单介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2%EF%BC%89%E9%80%BB%E8%BE%91"><span class="toc-number">1.0.1.2.</span> <span class="toc-text">2）逻辑</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3%EF%BC%89%E7%BC%96%E8%AF%91%E5%99%A8%E6%8F%92%E6%A1%A9%E5%AE%9E%E7%8E%B0%EF%BC%88GCC%EF%BC%89"><span class="toc-number">1.0.1.3.</span> <span class="toc-text">3）编译器插桩实现（GCC）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4%EF%BC%89-%E8%BF%90%E8%A1%8C%E6%97%B6%E5%BA%93%E5%AE%9E%E7%8E%B0%EF%BC%88libvtv%EF%BC%89"><span class="toc-number">1.0.1.4.</span> <span class="toc-text">4） 运行时库实现（libvtv）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Intel-CET"><span class="toc-number">1.0.2.</span> <span class="toc-text">2.Intel CET</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1%EF%BC%89IBT%EF%BC%88%E9%97%B4%E6%8E%A5%E5%88%86%E6%94%AF%E8%B7%9F%E8%B8%AA%EF%BC%89-%E4%BF%9D%E6%8A%A4%E9%97%B4%E6%8E%A5%E8%B0%83%E6%95%B4"><span class="toc-number">1.0.2.1.</span> <span class="toc-text">1）IBT（间接分支跟踪） 保护间接调整</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2%EF%BC%89Shadow-Stack-%E4%BF%9D%E6%8A%A4%E8%BF%94%E5%9B%9E%E5%9C%B0%E5%9D%80"><span class="toc-number">1.0.2.2.</span> <span class="toc-text">2）Shadow Stack 保护返回地址</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3%EF%BC%89%E7%BC%96%E8%AF%91%E5%99%A8%E5%AE%9E%E7%8E%B0%EF%BC%88GCC%EF%BC%89"><span class="toc-number">1.0.2.3.</span> <span class="toc-text">3）编译器实现（GCC）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4%EF%BC%89%E5%86%85%E6%A0%B8%E6%94%AF%E6%8C%81%EF%BC%88Linux%EF%BC%89"><span class="toc-number">1.0.2.4.</span> <span class="toc-text">4）内核支持（Linux）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Stack-Canary"><span class="toc-number">1.0.3.</span> <span class="toc-text">3.Stack Canary</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1%EF%BC%89Glibc-%E8%BF%90%E8%A1%8C%E6%97%B6%E5%AE%9E%E7%8E%B0%EF%BC%9A"><span class="toc-number">1.0.3.1.</span> <span class="toc-text">1）Glibc:运行时实现：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2%EF%BC%89GCC-%E7%9A%84%E6%8F%92%E6%A1%A9%E5%AE%9E%E7%8E%B0"><span class="toc-number">1.0.3.2.</span> <span class="toc-text">2）GCC 的插桩实现</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3%EF%BC%89%E5%AE%8C%E6%95%B4%E6%B5%81%E7%A8%8B%EF%BC%9A"><span class="toc-number">1.0.3.3.</span> <span class="toc-text">3）完整流程：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-SafeStack%EF%BC%88%E5%AE%89%E5%85%A8%E6%A0%88%EF%BC%89"><span class="toc-number">1.0.4.</span> <span class="toc-text">4.SafeStack（安全栈）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1%EF%BC%89%E5%88%9D%E5%A7%8B%E5%8C%96%E5%92%8C%E5%88%86%E9%85%8D%E6%9C%BA%E5%88%B6"><span class="toc-number">1.0.4.1.</span> <span class="toc-text">1）初始化和分配机制</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1%EF%BC%89%E7%BC%96%E8%AF%91%E5%99%A8-Pass-%E5%AE%9E%E7%8E%B0%EF%BC%88LLVM%EF%BC%89"><span class="toc-number">1.0.4.2.</span> <span class="toc-text">1）编译器 Pass 实现（LLVM）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-LLVM-CFI%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="toc-number">1.0.5.</span> <span class="toc-text">5.LLVM CFI的实现</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BC%96%E8%AF%91%E5%99%A8-Pass-%E5%AE%9E%E7%8E%B0%EF%BC%88LLVM%EF%BC%89"><span class="toc-number">1.0.5.1.</span> <span class="toc-text">编译器 Pass 实现（LLVM）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2%EF%BC%89%E8%BF%90%E8%A1%8C%E6%97%B6%E5%AE%9E%E7%8E%B0%EF%BC%88compiler-rt%EF%BC%89"><span class="toc-number">1.0.5.2.</span> <span class="toc-text">2）运行时实现（compiler-rt）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E7%BB%BC%E5%90%88%E5%AF%B9%E6%AF%94%E5%88%86%E6%9E%90"><span class="toc-number">1.1.</span> <span class="toc-text">三、综合对比分析</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/01/08/%E4%B8%BA%E4%BB%80%E4%B9%88Windows%E5%BD%B1%E5%AD%90%E6%A0%88%E8%A6%81%E9%BB%98%E8%AE%A4NOSET/" title="为什么Windows影子栈要默认NOSET?"><img src="/img/posts/2026/8/4.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="为什么Windows影子栈要默认NOSET?"/></a><div class="content"><a class="title" href="/2026/01/08/%E4%B8%BA%E4%BB%80%E4%B9%88Windows%E5%BD%B1%E5%AD%90%E6%A0%88%E8%A6%81%E9%BB%98%E8%AE%A4NOSET/" title="为什么Windows影子栈要默认NOSET?">为什么Windows影子栈要默认NOSET?</a><time datetime="2026-01-08T03:35:04.000Z" title="发表于 2026-01-08 11:35:04">2026-01-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/01/02/%E5%85%B3%E4%BA%8ECFI%E6%9C%BA%E5%88%B6%E7%9A%84%E5%88%86%E6%9E%90%E6%80%BB%E7%BB%93/" title="关于CFI机制的分析总结"><img src="/img/posts/2026/1/%E5%85%B3%E4%BA%8ECFI%E6%9C%BA%E5%88%B6%E7%9A%84%E5%88%86%E6%9E%90%E6%80%BB%E7%BB%93/1.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="关于CFI机制的分析总结"/></a><div class="content"><a class="title" href="/2026/01/02/%E5%85%B3%E4%BA%8ECFI%E6%9C%BA%E5%88%B6%E7%9A%84%E5%88%86%E6%9E%90%E6%80%BB%E7%BB%93/" title="关于CFI机制的分析总结">关于CFI机制的分析总结</a><time datetime="2026-01-02T15:36:40.000Z" title="发表于 2026-01-02 23:36:40">2026-01-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/12/30/The-final-of-2025/" title="The final of 2025"><img src="/img/covers/the-final-of-2025.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="The final of 2025"/></a><div class="content"><a class="title" href="/2025/12/30/The-final-of-2025/" title="The final of 2025">The final of 2025</a><time datetime="2025-12-30T10:54:03.000Z" title="发表于 2025-12-30 18:54:03">2025-12-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/12/30/hello-world/" title="Hello World"><img src="/img/background.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hello World"/></a><div class="content"><a class="title" href="/2025/12/30/hello-world/" title="Hello World">Hello World</a><time datetime="2025-12-30T09:19:49.522Z" title="发表于 2025-12-30 17:19:49">2025-12-30</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 - 2026 By lllle1yh</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.2.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.3</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="https://cdn.jsdelivr.net/npm/hexo-theme-butterfly@5.5.3/source/js/utils.min.js"></script><script src="https://cdn.jsdelivr.net/npm/hexo-theme-butterfly@5.5.3/source/js/main.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1.7/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>(() => {
   const runMermaid = ele => {
     window.loadMermaid = true
     const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
